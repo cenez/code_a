@@ -25,6 +25,6 @@ public class Main {
 		for (Funcionario funcionario : lista) {
 			System.out.println(funcionario+" -> "+funcionario.lema);
 		}
-		
+		Principal p = new Principal();
 	}
 }
