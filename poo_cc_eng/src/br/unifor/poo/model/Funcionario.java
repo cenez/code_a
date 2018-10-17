@@ -1,7 +1,7 @@
 package br.unifor.poo.model;
 
 public class Funcionario {
-	public static final String LEMA = "Unidos venceremos!";
+	//public static final String LEMA = "Unidos venceremos!";
 	protected int matricula;
 	protected String nome;
 	protected String atribuicao;
