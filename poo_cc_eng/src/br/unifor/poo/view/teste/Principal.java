@@ -1,4 +1,4 @@
-package poo;
+package br.unifor.poo.view.teste;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package poo;
+package br.unifor.poo.model;
 
 import java.util.ArrayList;
 import java.util.Collections;

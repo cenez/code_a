@@ -1,6 +1,10 @@
-package poo;
+package br.unifor.poo.view;
 
 import java.util.Collection;
+
+import br.unifor.poo.model.Departamento;
+import br.unifor.poo.model.Funcionario;
+import br.unifor.poo.view.teste.Principal;
 
 public class Main {
 	public static void main(String[] args) {
