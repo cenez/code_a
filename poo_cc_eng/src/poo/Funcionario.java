@@ -1,9 +1,7 @@
 package poo;
 
-import sun.nio.cs.ext.ISCII91;
-
 public class Funcionario {
-	public static String lema = "Unidos venceremos!";
+	public static final String LEMA = "Unidos venceremos!";
 	protected int matricula;
 	protected String nome;
 	protected String atribuicao;

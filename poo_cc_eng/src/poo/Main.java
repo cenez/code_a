@@ -23,7 +23,7 @@ public class Main {
 		
 		Collection<Funcionario> lista = fisica.getFuncionarios();
 		for (Funcionario funcionario : lista) {
-			System.out.println(funcionario+" -> "+funcionario.lema);
+			System.out.println(funcionario+" -> "+funcionario.LEMA);
 		}
 		Principal p = new Principal();
 	}
