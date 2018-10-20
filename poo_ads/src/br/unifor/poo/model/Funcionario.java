@@ -1,14 +1,13 @@
 package br.unifor.poo.model;
 
 public class Funcionario {
-	private static int auto_incremento = 0;
 	protected int matricula;
 	protected String nome;
 	protected String atribuicao;
 	protected Departamento depto;
 
 	public Funcionario() {
-		this.matricula = ++auto_incremento;
+		this.matricula = AutoIncremento.getNum();
 	}
 
 	public Funcionario(String _nome) {

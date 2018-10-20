@@ -6,13 +6,12 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Departamento {
-	private static int auto_incremento = 0;
 	protected int codigo;
 	protected String nome;
 	protected List<Funcionario> funcionarios = new ArrayList<Funcionario>();
 
 	public Departamento() {
-		this.codigo = ++auto_incremento;
+		this.codigo = AutoIncremento.getNum();
 	}
 
 	public Departamento(String _nome) {
