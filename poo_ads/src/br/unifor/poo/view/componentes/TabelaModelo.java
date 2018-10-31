@@ -9,6 +9,7 @@ import javax.swing.table.AbstractTableModel;
 public class TabelaModelo<T> extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
 	private final List<T> dataList;
+	private String[] columnName = null;
 	public TabelaModelo() { dataList = new ArrayList<T>(); }
 	
 	@Override
@@ -39,8 +40,29 @@ public class TabelaModelo<T> extends AbstractTableModel {
 		}
 		return o;
 	}
+	@Override
+	public String getColumnName(int column) {
+		if(this.columnName==null)
+			configColumns();
+		if(this.dataList.size()>0)
+			return this.columnName[column];
+		return "";
+	}
+	public void configColumns() {
+		if(this.dataList.size()>0) {
+			T n = (T) dataList.get(0);
+			int i = 0;
+			Field[] atributos = n.getClass().getDeclaredFields();
+			this.columnName = new String[atributos.length];
+			for (Field field : atributos) {
+				this.columnName[i++] = field.getName();
+			}
+		}
+	}
 	public void clear(){ dataList.clear(); }
-	public void add(T t) { dataList.add(t); }
+	public void add(T t) { 
+		dataList.add(t); 
+	}
 	public T getItem(int rowIndex){
 		if(dataList.size() == 0) return null;
 		return (T) dataList.get(rowIndex);
