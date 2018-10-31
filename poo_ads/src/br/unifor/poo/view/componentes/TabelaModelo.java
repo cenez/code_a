@@ -55,7 +55,7 @@ public class TabelaModelo<T> extends AbstractTableModel {
 			Field[] atributos = n.getClass().getDeclaredFields();
 			this.columnName = new String[atributos.length];
 			for (Field field : atributos) {
-				this.columnName[i++] = field.getName();
+				this.columnName[i++] = field.getName().toUpperCase();
 			}
 		}
 	}
