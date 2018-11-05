@@ -1,4 +1,4 @@
-package br.unifor.poo.model;
+package model.entidade;
 
 public class Funcionario {
 	//public static final String LEMA = "Unidos venceremos!";
@@ -7,9 +7,9 @@ public class Funcionario {
 	protected String atribuicao;
 	protected Departamento depto = null;
 	public Funcionario(){}
-	public Funcionario(int matricula, String nome, String atribuicao) {
+	public Funcionario(String nome, String atribuicao) {
 		super();
-		this.matricula = matricula;
+		this.matricula = Incremento.getValue();
 		this.nome = nome;
 		this.atribuicao = atribuicao;
 	}

@@ -1,4 +1,4 @@
-package br.unifor.poo.model;
+package model.entidade;
 
 import java.util.ArrayList;
 import java.util.Collections;
