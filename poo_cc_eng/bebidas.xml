@@ -1,19 +1,17 @@
-<java.util.Arrays_-ArrayList>
-  <a class="model.entidade.Bebida-array">
-    <model.entidade.Bebida>
-      <nome>Coca-Cola</nome>
-      <preco>4.5</preco>
-      <quantidade>1000</quantidade>
-    </model.entidade.Bebida>
-    <model.entidade.Bebida>
-      <nome>Fanta</nome>
-      <preco>4.5</preco>
-      <quantidade>1000</quantidade>
-    </model.entidade.Bebida>
-    <model.entidade.Bebida>
-      <nome>Guarana</nome>
-      <preco>4.5</preco>
-      <quantidade>1000</quantidade>
-    </model.entidade.Bebida>
-  </a>
-</java.util.Arrays_-ArrayList>
+<set>
+  <model.entidade.Bebida>
+    <nome>Coca-Cola</nome>
+    <preco>4.5</preco>
+    <quantidade>1000</quantidade>
+  </model.entidade.Bebida>
+  <model.entidade.Bebida>
+    <nome>Guarana</nome>
+    <preco>4.5</preco>
+    <quantidade>1000</quantidade>
+  </model.entidade.Bebida>
+  <model.entidade.Bebida>
+    <nome>Fanta</nome>
+    <preco>4.5</preco>
+    <quantidade>1000</quantidade>
+  </model.entidade.Bebida>
+</set>

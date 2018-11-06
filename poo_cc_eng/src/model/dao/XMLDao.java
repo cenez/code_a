@@ -1,6 +1,7 @@
 package model.dao;
 
-import java.util.List;
+import java.io.Reader;
+import java.util.Collection;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -8,13 +9,18 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 import util.FileUtil;
 
 public class XMLDao<T> {
-	public void toXMLFile(List<T> list, String path){
+	public void commit(Collection<T> collection, String path) {
 		XStream stream = new XStream(new DomDriver());
-		FileUtil.writeFile(path, stream.toXML(list));
+		String xml = stream.toXML(collection);
+		FileUtil.writeFile(path, xml);
 	}
-	public List<T> fromXMLFile(String path){
+	public Collection<T> load(String path) {
 		XStream stream = new XStream(new DomDriver());
 		String xml = FileUtil.readFile(path);
-		return (List<T>) stream.fromXML(xml);
+		return (Collection<T>) stream.fromXML(xml);
+	}
+	public Collection<T> load(Reader fonte) {
+		XStream stream = new XStream(new DomDriver());
+		return (Collection<T>) stream.fromXML(fonte);
 	}
 }
