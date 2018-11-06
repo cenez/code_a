@@ -1,10 +1,32 @@
 package model.entidade;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="bebida")
 public class Bebida extends ItemCardapio {
+	@Id
+	@GeneratedValue
+	@Column(name="id")
+	private Long id;
+	
+	@Column(name="nome")
+	private String nome;
+	
+	@Column(name="preco")
+	protected double preco;
+	
+	@Column(name="quantidade")
 	private int quantidade;
 
+	public Bebida() {}
 	public Bebida(String nome, double preco, int quantidade) {
-		super(nome, preco);
+		this.nome = nome;
+		this.preco = preco;
 		this.quantidade = quantidade;
 	}
 	
@@ -21,6 +43,6 @@ public class Bebida extends ItemCardapio {
 
 	@Override
 	public String toString() {
-		return nome + "[" + this.quantidade + ", "+this.preco+"]";
+		return nome + "[" + this.preco + ","+this.quantidade+"]";
 	}
 }
