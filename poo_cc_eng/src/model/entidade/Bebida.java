@@ -7,12 +7,20 @@ public class Bebida extends ItemCardapio {
 		super(nome, preco);
 		this.quantidade = quantidade;
 	}
+	
+	public int getQuantidade() { return quantidade; }
+	public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
 
-	public int getQuantidade() {
-		return quantidade;
+	@Override
+	public final boolean visit(ItemPedido visitor) {
+		boolean valido = visitor.getQuantidade()<=this.quantidade;
+		if(valido)
+			this.quantidade = this.quantidade-visitor.getQuantidade();
+		return valido;
 	}
 
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
+	@Override
+	public String toString() {
+		return nome + "[" + this.quantidade + ", "+this.preco+"]";
 	}
 }
