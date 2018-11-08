@@ -5,8 +5,7 @@
         <!--  
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         -->
-		<class>model.entidade.Bebida</class>
-		<class>model.entidade.Lanche</class>
+		<class>model.entidade.ItemCardapio</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cnz" />
