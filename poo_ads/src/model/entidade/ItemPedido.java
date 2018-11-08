@@ -14,7 +14,7 @@ public class ItemPedido {
 	}
 	public double getValidValue() {
 		if(this.validado)
-			return this.item.preco * this.quantidade;
+			return this.item.getPreco() * this.quantidade;
 		return 0;
 	}
 	

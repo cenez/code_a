@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="lanche")
-public class Lanche extends ItemCardapio {
+public class Lanche implements ItemCardapio {
 	@Id
 	@GeneratedValue
 	@Column(name="id")
@@ -22,8 +22,15 @@ public class Lanche extends ItemCardapio {
 	
 	public Lanche() {}
 	public Lanche(String nome, double preco) {
-		super(nome, preco);
+		this.nome = nome;
+		this.preco = preco;
 	}
+	
+	public String getNome() { return this.nome; }
+	public void setNome(String nome) { this.nome = nome; }
+	public double getPreco() { return this.preco; }
+	public void setPreco(double preco) { this.preco = preco; }
+	
 	@Override
 	public final boolean visit(ItemPedido visitor) { return true; }
 }

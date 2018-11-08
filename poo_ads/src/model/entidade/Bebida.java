@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="bebida")
-public class Bebida extends ItemCardapio {
+public class Bebida implements ItemCardapio {
 	@Id
 	@GeneratedValue
 	@Column(name="id")
@@ -29,10 +29,6 @@ public class Bebida extends ItemCardapio {
 		this.preco = preco;
 		this.quantidade = quantidade;
 	}
-	
-	public int getQuantidade() { return quantidade; }
-	public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
-
 	@Override
 	public final boolean visit(ItemPedido visitor) {
 		boolean valido = visitor.getQuantidade()<=this.quantidade;
@@ -40,6 +36,13 @@ public class Bebida extends ItemCardapio {
 			this.quantidade = this.quantidade-visitor.getQuantidade();
 		return valido;
 	}
+	
+	public String getNome() { return this.nome; }
+	public void setNome(String nome) { this.nome = nome; }
+	public double getPreco() { return this.preco; }
+	public void setPreco(double preco) { this.preco = preco; }
+	public int getQuantidade() { return quantidade; }
+	public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
 
 	@Override
 	public String toString() {
