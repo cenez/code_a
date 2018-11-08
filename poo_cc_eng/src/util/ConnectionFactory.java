@@ -5,13 +5,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class ConnectionFactory {
-	private static String banco = "cnz";
 	private static ThreadLocal<EntityManager> managers = new ThreadLocal<EntityManager>();
 	
 	private static final EntityManagerFactory factory;
 
 	static {
-		factory = Persistence.createEntityManagerFactory(banco);
+		factory = Persistence.createEntityManagerFactory("jpa_unifor");
 		System.out.println("Entrou no static");
 	}
 
