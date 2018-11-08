@@ -6,14 +6,14 @@ import util.ConnectionFactory;
 
 public class MainTestaBanco {
 	public static void main(String[] args) {
-		DAO<Bebida,Long> daoDp = new DAO<>(ConnectionFactory.currentManager(), Bebida.class);
+		DAO<Bebida,Long> dao_bebida = new DAO<>(ConnectionFactory.currentManager(), Bebida.class);
 	
-		Bebida bebida = daoDp.load(1l);
+		Bebida bebida = dao_bebida.load(1l);
 		if(bebida!=null) {
 			System.out.println(bebida);
 		} else {
 			bebida = new Bebida("Coca-Cola", 5.2, 1000);
-			daoDp.save(bebida);
+			dao_bebida.save(bebida);
 		}
 		
 		ConnectionFactory.close();

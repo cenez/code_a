@@ -13,7 +13,7 @@ public class Bebida implements ItemCardapio {
 	@GeneratedValue
 	@Column(name="id")
 	private Long id;
-	
+
 	@Column(name="nome")
 	private String nome;
 	
@@ -36,6 +36,9 @@ public class Bebida implements ItemCardapio {
 			this.quantidade = this.quantidade-visitor.getQuantidade();
 		return valido;
 	}
+
+	public Long getId() { return id; }
+	public void setId(Long id) { this.id = id; }
 	
 	public String getNome() { return this.nome; }
 	public void setNome(String nome) { this.nome = nome; }
@@ -46,6 +49,6 @@ public class Bebida implements ItemCardapio {
 
 	@Override
 	public String toString() {
-		return nome + "[" + this.preco + ","+this.quantidade+"]";
+		return nome + "(" + this.preco + ", "+this.quantidade+")";
 	}
 }
