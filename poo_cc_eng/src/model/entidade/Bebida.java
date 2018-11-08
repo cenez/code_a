@@ -31,10 +31,10 @@ public class Bebida implements ItemCardapio {
 	}
 	@Override
 	public final boolean visit(ItemPedido visitor) {
-		boolean valido = visitor.getQuantidade()<=this.quantidade;
-		if(valido)
+		boolean liberado = visitor.getQuantidade()<=this.quantidade;
+		if(liberado)
 			this.quantidade = this.quantidade-visitor.getQuantidade();
-		return valido;
+		return liberado;
 	}
 
 	public Long getId() { return id; }
