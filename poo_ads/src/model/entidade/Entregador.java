@@ -1,7 +1,7 @@
 package model.entidade;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -34,7 +34,7 @@ public class Entregador {
 	}
 
 	@OneToMany(mappedBy="entregador", cascade=CascadeType.ALL)
-	protected Collection<Pedido> pedidos = new ArrayList<Pedido>();
+	protected Collection<Pedido> pedidos = new HashSet<Pedido>();
 	public Collection<Pedido> getPedidos() { 
 		return pedidos;
 	}
