@@ -2,25 +2,43 @@ package all_tests;
 
 import model.dao.DAO;
 import model.entidade.Bebida;
-import model.entidade.ItemCardapio;
-import model.entidade.Lanche;
+import model.entidade.Cardapio;
+import model.entidade.Cheque;
+import model.entidade.Cliente;
+import model.entidade.Entregador;
+import model.entidade.Pagamento;
+import model.entidade.Pedido;
 import util.ConnectionFactory;
 
 public class MainTestaBanco {
 	public static void main(String[] args) {
-		DAO<ItemCardapio,Long> dao = new DAO<>(ConnectionFactory.currentManager(), ItemCardapio.class);
+		DAO<Cardapio,Long> cardapioDao = new DAO<>(ConnectionFactory.currentManager(), Cardapio.class);
+		DAO<Pedido,Long> pedidoDao = new DAO<>(ConnectionFactory.currentManager(), Pedido.class);
+		DAO<Cliente,Long> clienteDao = new DAO<>(ConnectionFactory.currentManager(), Cliente.class);
+		DAO<Entregador,Long> entregadorDao = new DAO<>(ConnectionFactory.currentManager(), Entregador.class);
 		
-		ItemCardapio coca_cola = dao.load(1l);
-		ItemCardapio xsalada = dao.load(2l);
+		Cliente joao = new Cliente("Joao", "RuaDeBoa");
+		Entregador jose = new Entregador("Jose Silva", "YZK-1232");
+		Pagamento pagamento = new Cheque(2.5, "12345", "ag-123", "cc-123456","1");
+		Pedido pedido = new Pedido(joao, jose, pagamento);
 		
-		if(coca_cola==null && xsalada==null) {
-			coca_cola = new Bebida("Coca-Cola", 5.2, 1000);
-			xsalada = new Lanche("X-Salada", 5.2);
-			dao.save(coca_cola);
-			dao.save(xsalada);
-		}
-		System.out.println(coca_cola + "\n" + xsalada);
+		Cardapio coca = new Bebida("Coca", 4.5, 10);
+		Cardapio fanta = new Bebida("Fanta", 4.5, 10);
 		
+		pedido.addItem(coca, 2);
+		pedido.addItem(fanta, 1);
+		
+		cardapioDao.save(coca);
+		cardapioDao.save(fanta);
+		
+		clienteDao.save(joao);
+		entregadorDao.save(jose);
+		
+		pedido.entregaFeita(true);
+		pedidoDao.save(pedido);
+
+		System.out.println(pedido.ticket());
+		System.out.println(jose.ticket());
 		ConnectionFactory.close();
 	}
 }
