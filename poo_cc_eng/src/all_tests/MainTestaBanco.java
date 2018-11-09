@@ -6,7 +6,6 @@ import model.entidade.Cardapio;
 import model.entidade.Cheque;
 import model.entidade.Cliente;
 import model.entidade.Entregador;
-import model.entidade.ItemPedido;
 import model.entidade.Pagamento;
 import model.entidade.Pedido;
 import util.ConnectionFactory;
@@ -17,7 +16,6 @@ public class MainTestaBanco {
 		DAO<Pedido,Long> pedidoDao = new DAO<>(ConnectionFactory.currentManager(), Pedido.class);
 		DAO<Cliente,Long> clienteDao = new DAO<>(ConnectionFactory.currentManager(), Cliente.class);
 		DAO<Entregador,Long> entregadorDao = new DAO<>(ConnectionFactory.currentManager(), Entregador.class);
-		DAO<ItemPedido,Long> itemPedidoDao = new DAO<>(ConnectionFactory.currentManager(), ItemPedido.class);
 		
 		Cliente joao = new Cliente("Joao", "RuaDeBoa");
 		Entregador jose = new Entregador("Jose Silva", "YZK-1232");
@@ -28,7 +26,7 @@ public class MainTestaBanco {
 		Cardapio fanta = new Bebida("Fanta", 4.5, 10);
 		
 		pedido.addItem(coca, 2);
-		pedido.addItem(fanta, 15);
+		pedido.addItem(fanta, 1);
 		
 		cardapioDao.save(coca);
 		cardapioDao.save(fanta);
