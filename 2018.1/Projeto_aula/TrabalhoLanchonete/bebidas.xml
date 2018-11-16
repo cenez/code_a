@@ -1,0 +1,17 @@
+<list>
+  <br.unifor.poo.model.Bebida>
+    <nome>Coca-Cola</nome>
+    <preco>3.5</preco>
+    <qtdEstoque>100</qtdEstoque>
+  </br.unifor.poo.model.Bebida>
+  <br.unifor.poo.model.Bebida>
+    <nome>Fanta Uva</nome>
+    <preco>3.5</preco>
+    <qtdEstoque>100</qtdEstoque>
+  </br.unifor.poo.model.Bebida>
+  <br.unifor.poo.model.Bebida>
+    <nome>Fanta Laranja</nome>
+    <preco>3.5</preco>
+    <qtdEstoque>100</qtdEstoque>
+  </br.unifor.poo.model.Bebida>
+</list>
