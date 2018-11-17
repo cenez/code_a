@@ -60,10 +60,12 @@ public class CardapioView {
 	}
 
 	private void tableEventUpdate() {
-		Cardapio cardapio = dao.load(tableView.getSelectionModel().getSelectedItem().getId());
-		textFieldCodigo.setText("" + cardapio.getId());
-		textFieldNome.setText(cardapio.getNome());
-		textFieldPreco.setText("" + cardapio.getPreco());
+		Cardapio cardapio = tableView.getSelectionModel().getSelectedItem();
+		if(cardapio!=null) {
+			textFieldCodigo.setText("" + cardapio.getId());
+			textFieldNome.setText(cardapio.getNome());
+			textFieldPreco.setText("" + cardapio.getPreco());
+		}
 	}
 
 	public Cardapio getCardapio() {
