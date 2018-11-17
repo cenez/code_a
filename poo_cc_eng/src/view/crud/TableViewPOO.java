@@ -1,6 +1,8 @@
 package view.crud;
 
 import java.lang.reflect.Field;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -14,16 +16,20 @@ public class TableViewPOO<T> extends TableView<T> {
 		
 		this.persistentClass = persistentClass;
 		
-		Field[] fields = this.persistentClass.getDeclaredFields();
+		Set<Field> fields = new LinkedHashSet<>();
+		for (Field f : this.persistentClass.getSuperclass().getDeclaredFields())
+			fields.add(f);
+		for (Field f : this.persistentClass.getDeclaredFields())
+			fields.add(f);
 		
-		for (Field f : fields) {
+		fields.forEach(f->{
 			if(contem(colunas, f.getName())) {
 				TableColumn<T, ?> tc = new TableColumn<>(f.getName().toUpperCase());
 				tc.setMinWidth(f.getName().length()+200);
 				tc.setCellValueFactory(new PropertyValueFactory<>(f.getName()));
 				getColumns().add(tc);
-			}
-		}
+			}			
+		});
 	}
 	private boolean contem(String[] colunas, String nome) {
 		for (String s : colunas)
