@@ -14,11 +14,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import model.dao.DAO;
+import model.entidade.Bebida;
 import model.entidade.Cardapio;
 import util.ConnectionFactory;
-import view.crud.TableViewPOO;
 
-public class CardapioView {
+public class BebidaView {
 	// Botoes e textFields
 	@FXML
 	protected TextField textFieldCodigo;
@@ -26,6 +26,8 @@ public class CardapioView {
 	protected TextField textFieldNome;
 	@FXML
 	protected TextField textFieldPreco;
+	@FXML
+	protected TextField textFieldQtd;
 	@FXML
 	protected Button btnAdd;
 	@FXML
@@ -35,19 +37,19 @@ public class CardapioView {
 	@FXML
 	protected GridPane grid_pane;
 
-	protected TableViewPOO<Cardapio> tableView;
-	protected DAO<Cardapio, Long> dao;
+	protected TableViewPOO<Bebida> tableView;
+	protected DAO<Bebida, Long> dao;
 
 	@FXML
 	public void initialize() {
-		dao = new DAO<Cardapio, Long>(ConnectionFactory.currentManager(), Cardapio.class);
+		dao = new DAO<Bebida, Long>(ConnectionFactory.currentManager(), Bebida.class);
 		tabelaConfig();
 		textFieldCodigo.getStyleClass().add("desabilitado");
 		textFieldCodigo.setDisable(true);
 	}
 
 	public void tabelaConfig() {
-		tableView = new TableViewPOO<>(Cardapio.class, "id", "nome", "preco");
+		tableView = new TableViewPOO<>(Bebida.class, "id", "nome", "preco", "qtd");
 		grid_pane.getChildren().add(tableView);
 		tableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
@@ -60,15 +62,16 @@ public class CardapioView {
 	}
 
 	private void tableEventUpdate() {
-		Cardapio cardapio = tableView.getSelectionModel().getSelectedItem();
-		if(cardapio!=null) {
-			textFieldCodigo.setText("" + cardapio.getId());
-			textFieldNome.setText(cardapio.getNome());
-			textFieldPreco.setText("" + cardapio.getPreco());
+		Cardapio bebida = tableView.getSelectionModel().getSelectedItem();
+		if(bebida!=null) {
+			textFieldCodigo.setText("" + bebida.getId());
+			textFieldNome.setText(bebida.getNome());
+			textFieldPreco.setText("" + bebida.getPreco());
+			textFieldQtd.setText("" + ((Bebida)bebida).getQtd());
 		}
 	}
 
-	public Cardapio getCardapio() {
+	public Bebida getBebida() {
 		Long id = -1l;
 
 		try {
@@ -76,25 +79,26 @@ public class CardapioView {
 		} catch (Exception e) {
 		}
 
-		Cardapio cardapio = null;
+		Bebida bebida = null;
 		if (id >= 0)
-			cardapio = dao.load(id);
-		if (cardapio == null)
-			cardapio = new Cardapio();
+			bebida = dao.load(id);
+		if (bebida == null)
+			bebida = new Bebida();
 
 		if (id >= 0)
-			cardapio.setId(id);
-		cardapio.setNome(textFieldNome.getText());
-		cardapio.setPreco(Double.parseDouble(textFieldPreco.getText()));
-		return cardapio;
+			bebida.setId(id);
+		bebida.setNome(textFieldNome.getText());
+		bebida.setPreco(Double.parseDouble(textFieldPreco.getText()));
+		bebida.setQtd(Integer.parseInt(textFieldQtd.getText()));
+		return bebida;
 	}
 
 	@FXML
 	public void btnAddClick(ActionEvent event) {
-		Cardapio cardapio = getCardapio();
-		dao.save(cardapio);
+		Bebida bebida = getBebida();
+		dao.save(bebida);
 		updateTableView();
-		textFieldCodigo.setText(cardapio.getId() + "");
+		textFieldCodigo.setText(bebida.getId() + "");
 	}
 
 	@FXML
@@ -106,8 +110,8 @@ public class CardapioView {
 	@FXML
 	public void btnRemoveClick(ActionEvent event) {
 		if (!textFieldCodigo.getText().equals("")) {
-			Cardapio cardapio = getCardapio();
-			dao.delete(cardapio);
+			Bebida bebida = getBebida();
+			dao.delete(bebida);
 			updateTableView();
 			textFieldCodigo.setText("");
 		} else
@@ -116,14 +120,14 @@ public class CardapioView {
 
 	public void updateTableView() {
 		tableView.getItems().clear();
-		tableView.getItems().addAll(getCardapios());
+		tableView.getItems().addAll(getBebidas());
 	}
 
-	public ObservableList<Cardapio> getCardapios() {
-		List<Cardapio> cardapios = dao.list();
-		ObservableList<Cardapio> lista = FXCollections.observableArrayList();
-		for (Cardapio cardapio : cardapios)
-			lista.add(cardapio);
+	public ObservableList<Bebida> getBebidas() {
+		List<Bebida> bebidas = dao.list();
+		ObservableList<Bebida> lista = FXCollections.observableArrayList();
+		for (Bebida bebida : bebidas)
+			lista.add(bebida);
 		return lista;
 	}
 }
