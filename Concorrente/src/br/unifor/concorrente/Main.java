@@ -5,8 +5,8 @@ import br.unifor.concorrente.produtorconsumidor.Produtor;
 
 public class Main {
 	
-	/* Este programa intencionalmente trava quando executado*/
 	public static void main(String[] args) throws InterruptedException {
+		System.out.println("Este programa intencionalmente trava quando executado!!!");
 		Produtor produtor = new Produtor();
 		Consumidor consumidor = new Consumidor();
 		produtor.start();
