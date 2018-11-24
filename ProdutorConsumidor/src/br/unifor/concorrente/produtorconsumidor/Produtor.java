@@ -1,4 +1,4 @@
-package br.unifor.paradigmas.concorrente.produtorconsumidor;
+package br.unifor.concorrente.produtorconsumidor;
 
 public class Produtor extends Thread {
 	@Override

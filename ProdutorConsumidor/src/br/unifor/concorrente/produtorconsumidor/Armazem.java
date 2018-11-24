@@ -1,9 +1,10 @@
-package br.unifor.paradigmas.concorrente.produtorconsumidor;
-
-import br.unifor.paradigmas.concorrente.Semaforo;
+package br.unifor.concorrente.produtorconsumidor;
 
 public class Armazem {
-	public static Semaforo semaforo = new Semaforo(1);
+	/*
+	 * Sugestao para se resolver o produtor consumidor: inserir semaforo
+	   public static Semaforo semaforo = new Semaforo(1);
+	*/
 	public static long MAX = 100;
 	public final static int N = 10;
 	public static long[] buffer = new long[N];

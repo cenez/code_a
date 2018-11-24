@@ -1,4 +1,4 @@
-package br.unifor.paradigmas.concorrente;
+package br.unifor.concorrente.sync;
 
 public class Semaforo {
     private int counter;
