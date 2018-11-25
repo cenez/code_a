@@ -19,8 +19,9 @@ public class CampoMinado extends JFrame {
 		this.lin = size;
 		this.col = size;
 		minas = new Mina[lin][];
-		CampoMinadoConfiguration.menuConf(this);
-		CampoMinadoConfiguration.insereMinas(this);
-		CampoMinadoConfiguration.dimensionsConfig(this, size);
+		CampoMinadoConfiguration config = new CampoMinadoConfiguration(this);
+		config.menuConf();
+		config.insereMinas();
+		config.dimensionsConfig(size);
 	}
 }
