@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,14 +24,18 @@ public class CampoMinado extends JFrame {
 	public void start(int size) {
 		this.lin = size;
 		this.col = size;
-		minas = new Mina[lin][];
-		CampoMinadoConfiguration config = new CampoMinadoConfiguration(this);
-		config.minas();
-		config.visinhos();
-		this.menu();
+		this.menuAndGrid();
+		
+		new CampoMinadoConfiguration(this).minas();
+		
 		this.dimensionsConfig(size);
 	}
-	public void menu() {
+	public void menuAndGrid() {
+		minas = new Mina[this.lin][];
+		this.center.setLayout(new GridLayout(this.lin, this.col));
+		for (int i = 0; i < this.lin; i++)
+			this.minas[i] = new Mina[this.col];
+		
 		this.menuBar.add(this.menu);
 		this.menu.add(this.fechar);
 		this.fechar.addActionListener(new ActionListener() {
@@ -38,6 +43,7 @@ public class CampoMinado extends JFrame {
 				System.exit(0);
 			}
 		});
+		this.add(this.center, BorderLayout.CENTER);
 		this.add(this.menuBar, BorderLayout.NORTH);
 	}
 	public void dimensionsConfig(final int MAX) {

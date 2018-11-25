@@ -1,6 +1,4 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,10 +8,7 @@ public class CampoMinadoConfiguration {
 		this.campoMinado = campoMinado;
 	}
 	public void minas() {
-		campoMinado.center.setLayout(new GridLayout(campoMinado.lin, campoMinado.col));
-		campoMinado.add(campoMinado.center, BorderLayout.CENTER);
 		for (int i = 0; i < campoMinado.lin; i++) {
-			campoMinado.minas[i] = new Mina[campoMinado.col];
 			for (int j = 0; j < campoMinado.col; j++) {
 				Mina mina = new Mina(i, j);
 				campoMinado.center.add(mina);
@@ -25,6 +20,7 @@ public class CampoMinadoConfiguration {
 				});
 			}
 		}
+		this.visinhos();
 	}
 	private void testaMina(Mina mina) {
 		if (mina.isEnabled()) {
@@ -44,7 +40,7 @@ public class CampoMinadoConfiguration {
 			mina.setEnabled(false);
 		}
 	}
-	public void visinhos() {
+	private void visinhos() {
 		for (int i = 0; i < campoMinado.lin; i++) {
 			for (int j = 0; j < campoMinado.col; j++) {
 				Mina mina = campoMinado.minas[i][j];
