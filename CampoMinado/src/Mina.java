@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
@@ -20,7 +20,11 @@ public class Mina extends JButton{
 		return Math.abs(r.nextInt())%n;
 	}
 	public Collection<Mina> perimetros(){
-		return Arrays.asList(perimetro);
+		Collection<Mina> minas = new ArrayList<>();
+		for(int i=0;i<perimetro.length;i++)
+			if(perimetro[i]!=null)
+				minas.add(perimetro[i]);
+		return minas;
 	}
 	public void setPerimetro(Mina[][] minas) {
 		int len = minas.length;

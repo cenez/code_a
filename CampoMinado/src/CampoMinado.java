@@ -1,3 +1,8 @@
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -20,8 +25,28 @@ public class CampoMinado extends JFrame {
 		this.col = size;
 		minas = new Mina[lin][];
 		CampoMinadoConfiguration config = new CampoMinadoConfiguration(this);
-		config.menuConf();
-		config.insereMinas();
-		config.dimensionsConfig(size);
+		config.minas();
+		config.visinhos();
+		this.menu();
+		this.dimensionsConfig(size);
+	}
+	public void menu() {
+		this.menuBar.add(this.menu);
+		this.menu.add(this.fechar);
+		this.fechar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		this.add(this.menuBar, BorderLayout.NORTH);
+	}
+	public void dimensionsConfig(final int MAX) {
+		final int PROPORCAO = 30 * MAX;
+		this.setTitle("Jogo do campo minado!!!");
+		this.setPreferredSize(new Dimension(PROPORCAO, PROPORCAO));
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.pack();
+		this.setLocationRelativeTo(null);
 	}
 }
