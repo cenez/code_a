@@ -8,7 +8,7 @@
 <title>Editar diploma</title>
 </head>
 <body>
-	<form action="/tecnicas/diploma/gravarDiploma" method="post">
+	<form action="/tecnicas/diploma" method="post">
 		<div>
 			<label>Registro</label>
 			<input type="text" name="registro">

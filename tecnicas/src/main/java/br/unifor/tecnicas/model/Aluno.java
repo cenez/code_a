@@ -2,13 +2,11 @@ package br.unifor.tecnicas.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Aluno {
@@ -22,8 +20,8 @@ public class Aluno {
 	@ElementCollection
 	private List<Documento> documentos;
 
-	@OneToMany(cascade=CascadeType.ALL)
-	protected List<Diploma> diplomas;
+	//@OneToMany(cascade=CascadeType.ALL)
+	//protected List<Diploma> diplomas;
 	
 	public Aluno() {}
 	
@@ -53,13 +51,13 @@ public class Aluno {
 	public void setDocumentos(List<Documento> _docs) {
 		this.documentos = _docs;
 	}
-	public List<Diploma> getDiplomas() {
-		return diplomas;
-	}
-
-	public void setDiplomas(List<Diploma> diplomas) {
-		this.diplomas = diplomas;
-	}
+//	public List<Diploma> getDiplomas() {
+//		return diplomas;
+//	}
+//
+//	public void setDiplomas(List<Diploma> diplomas) {
+//		this.diplomas = diplomas;
+//	}
 	@Override
 	public String toString() {
 		return this.nome;
