@@ -10,11 +10,11 @@
 <body>
 	<form action="/tecnicas/aluno" method="post">
 		<div>
-			<label>Nome</label>
+			<label>Nome</label><br>
 			<input type="text" name="nome">
 		</div>
 		<div>
-			<label>Endereco</label>
+			<label>Endereco</label><br>
 			<textarea rows="3" cols="40" name="endereco"></textarea>
 		</div>
 		<c:forEach items="${tipos }" var="tipoDoc" varStatus="status">
