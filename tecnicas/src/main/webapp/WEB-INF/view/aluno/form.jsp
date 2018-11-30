@@ -30,6 +30,7 @@
 					<form:input path="documentos[${status.index}].numero" /><br>
 					<form:hidden path="documentos[${status.index}].tipo" value="${tipoDoc}"/>
 				</c:forEach>
+				<form:errors path="documentos"/>
 			</div>
 		</div><br><br><br><br><br><br>
 		<button type="submit">Cadastrar</button>
