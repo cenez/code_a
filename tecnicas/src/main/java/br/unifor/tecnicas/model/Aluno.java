@@ -20,8 +20,8 @@ public class Aluno {
 	@ElementCollection
 	private List<Documento> documentos;
 
-	//@OneToMany(cascade=CascadeType.ALL)
-	//protected List<Diploma> diplomas;
+//	@OneToMany(cascade=CascadeType.ALL)
+//	protected List<Diploma> diplomas;
 	
 	public Aluno() {}
 	

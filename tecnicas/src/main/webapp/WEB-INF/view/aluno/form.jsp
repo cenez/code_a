@@ -4,10 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Cadastro de aluno</title>
+	<meta charset="UTF-8">
+	<title>Cadastro de aluno</title>
 </head>
 <body>
+	<a href="/tecnicas">HOME</a> <hr>
 	<form action="/tecnicas/aluno" method="post">
 		<div>
 			<label>Nome</label><br>
@@ -26,5 +27,7 @@
 		</c:forEach>
 		<button type="submit">Cadastrar</button>
 	</form>
+	<hr>
+	<jsp:include page="listar.jsp" />
 </body>
 </html>

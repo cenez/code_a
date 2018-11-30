@@ -11,7 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.unifor.tecnicas.dao.AlunoDao;
+import br.unifor.tecnicas.dao.DiplomaDao;
 import br.unifor.tecnicas.model.Aluno;
+import br.unifor.tecnicas.model.Diploma;
 import br.unifor.tecnicas.model.DocumentoTipo;
 
 @Controller
@@ -25,14 +27,30 @@ public class AlunoController {
 		System.out.println("aluno/form acessado!!!");
 		ModelAndView modelAndView = new ModelAndView("aluno/form");
 		modelAndView.addObject("tipos", DocumentoTipo.values());
+		modelAndView.addObject("alunos", alunoDao.listar());
+		return modelAndView;
+	}
+	@RequestMapping("/form/{id}")
+	public ModelAndView form(@PathVariable("id") long id) {
+		System.out.println("aluno/form/"+id+" acessado!!!");
+		List<Diploma> diplomas = alunoDao.diplomasOf(id);
+		
+		diplomas.forEach(dip->{
+			 System.out.println(dip.getRegistro() + " : " + dip.getAluno().getNome());
+		 });
+		
+		ModelAndView modelAndView = new ModelAndView("aluno/form");
+		modelAndView.addObject("tipos", DocumentoTipo.values());
+		modelAndView.addObject("alunos", alunoDao.listar());
+		modelAndView.addObject("diplomas", diplomas);
 		return modelAndView;
 	}
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView gravar(Aluno aluno, RedirectAttributes redirectAttributes) {
-		System.out.println(aluno);
+		System.out.println(aluno); 
 		alunoDao.gravar(aluno);
 		redirectAttributes.addFlashAttribute("sucesso", "Aluno cadastrado com sucesso!");
-		return new ModelAndView("redirect:/aluno");
+		return new ModelAndView("redirect:aluno/form");
 	}
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView listar() {

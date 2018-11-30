@@ -4,11 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.unifor.tecnicas.model.Aluno;
 import br.unifor.tecnicas.model.Diploma;
 
 @Repository
@@ -23,8 +23,10 @@ public class DiplomaDao {
 		return manager.createQuery("select p from Diploma p", Diploma.class)
 				.getResultList();
 	}
-	public List<Aluno> listarAlunos() {
-		return manager.createQuery("select p from Aluno p", Aluno.class)
-				.getResultList();
+	public List<Diploma> listar(long id) {
+		Query query = manager.createQuery("from Diploma where aluno_id = :id");
+		query.setParameter("id", id);
+		List<Diploma> list = query.getResultList();		
+		return list;
 	}
 }
