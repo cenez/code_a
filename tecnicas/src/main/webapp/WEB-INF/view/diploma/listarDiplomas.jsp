@@ -22,6 +22,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="/tecnicas">HOME</a>
+	<a href="/tecnicas/aluno/form">Alunos</a>
 </body>
 </html>
