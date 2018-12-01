@@ -8,9 +8,9 @@
 	<title>Listagem de aluno</title>
 </head>
 <body>
-	<h1>Lista de Alunos</h1>
-	<div>
-		<div>${sucesso}</div>
+  <div>
+    <div>${sucesso}</div>
+	<div style="float: left;">
 		<table>
 			<tr>
 				<td bgcolor="orange">Nome</td>
@@ -21,14 +21,13 @@
 				<tr>
 					<td>${aluno.nome}</td>
 					<td>${aluno.endereco }</td>
-					<td>[<a href="/tecnicas/aluno/${aluno.id}">Add</a>]</td>
-					<td>[<a href="/tecnicas/aluno/form/${aluno.id}">Listar</a>]</td>
+					<td><input type="submit" value="ADD" onclick="location. href= '/tecnicas/aluno/${aluno.id}'"></td>
+					<td><input type="submit" value="VER" onclick="location. href= '/tecnicas/aluno/form/${aluno.id}'"></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	<hr>
-	<div>
+	<div style="float: left;">
 		<table>
 			<tr>
 				<td colspan="2" bgcolor="orange">Registros Diploma</td>
@@ -41,5 +40,6 @@
 			</c:forEach>
 		</table>
 	</div>
+  </div>
 </body>
 </html>

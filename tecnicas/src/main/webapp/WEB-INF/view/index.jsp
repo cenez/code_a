@@ -6,7 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Minha Home</title>
-	<link href="${contextPath}resources/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="${pageContext.request.contextPath}/resources/css/default.css" rel="stylesheet" >
 </head>
 <body>
 	<h1>Unifor Spring Works!!!</h1>

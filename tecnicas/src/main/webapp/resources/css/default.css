@@ -1,13 +1,17 @@
+h1 {
+    color: #204a87;
+}
+div {
+	background: linen;
+}
 html, body {
     height: 100%;
 }
-
 html {
     display: table;
     margin: auto;
 }
-
 body {
     display: table-cell;
-    vertical-align: middle;
+    vertical-align: top;
 }

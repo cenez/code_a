@@ -8,34 +8,40 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Cadastro de aluno</title>
+	<link href="${pageContext.request.contextPath}/resources/css/default.css" rel="stylesheet" >
 </head>
 <body>
 	<a href="/tecnicas">HOME</a> <hr>
-	<!-- <form action="/tecnicas/aluno" method="post"> --> 
-	<form:form action="${s:mvcUrl('AC#gravar').build() }" method="post" commandName="aluno">
-		<div style="width: 36%;">
-			<label>Nome</label> <br>
-			<form:input path="nome" />
-			<form:errors path="nome"/>
-		</div><br>
-		<div style="width: 36%;">
-			<div style="width: 65%; float:left; ">
+	<h1>Alunos</h1>
+	<!-- <form action="/tecnicas/aluno" method="post"> -->
+	<div>
+		<form:form action="${s:mvcUrl('AC#gravar').build() }" method="post" commandName="aluno">
+			<div>
+				<label>Nome</label> <br>
+				<form:input path="nome" />
+				<form:errors path="nome"/>
+			</div>
+			<div>
 				<label>Endereco</label> <br>
 				<form:textarea  path="endereco" rows="3" cols="40" />
 				<form:errors path="endereco"/>
 			</div>
-			<div style="width: 33%; float:right; ">
+			<div>
 				<c:forEach items="${tipos }" var="tipo" varStatus="status">
 					<label> ${tipo}</label><br>
 					<form:input path="documentos[${status.index}].numero" /><br>
 					<form:hidden path="documentos[${status.index}].tipo" value="${tipo}"/>
 				</c:forEach>
 				<form:errors path="documentos"/>
+			</div><br>
+			<div>
+				<form:button>CADASTRAR</form:button>
 			</div>
-		</div><br><br><br><br><br><br>
-		<button type="submit">Cadastrar</button>
-	</form:form>
+		</form:form>
+	</div>
 	<hr>
-	<jsp:include page="listar.jsp" />
+	<div>
+		<jsp:include page="listar.jsp" />
+	</div>
 </body>
 </html>
