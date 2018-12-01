@@ -9,9 +9,9 @@
 </head>
 <body>
 	<h1>Lista de Alunos</h1>
-	<div">
+	<div>
 		<div>${sucesso}</div>
-		<table border="black">
+		<table>
 			<tr>
 				<td bgcolor="orange">Nome</td>
 				<td bgcolor="orange">Endereco</td>
@@ -29,7 +29,7 @@
 	</div>
 	<hr>
 	<div>
-		<table border="black">
+		<table>
 			<tr>
 				<td colspan="2" bgcolor="orange">Registros Diploma</td>
 			</tr>

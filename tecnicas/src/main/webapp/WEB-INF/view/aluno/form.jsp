@@ -25,10 +25,10 @@
 				<form:errors path="endereco"/>
 			</div>
 			<div style="width: 33%; float:right; ">
-				<c:forEach items="${tipos }" var="tipoDoc" varStatus="status">
-					<label> ${tipoDoc}</label><br>
+				<c:forEach items="${tipos }" var="tipo" varStatus="status">
+					<label> ${tipo}</label><br>
 					<form:input path="documentos[${status.index}].numero" /><br>
-					<form:hidden path="documentos[${status.index}].tipo" value="${tipoDoc}"/>
+					<form:hidden path="documentos[${status.index}].tipo" value="${tipo}"/>
 				</c:forEach>
 				<form:errors path="documentos"/>
 			</div>

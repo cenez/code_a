@@ -22,6 +22,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="/tecnicas/aluno/form">Alunos</a>
+	<a href="/tecnicas/aluno/form/">Cadastro de alunos</a>
 </body>
 </html>
