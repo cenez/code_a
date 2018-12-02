@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -81,5 +82,18 @@ public class AlunoController {
 		ModelAndView mv = new ModelAndView("/diploma/addDiploma");
 		mv.addObject("aluno", aluno);
 		return mv;
+	}
+	@RequestMapping(value="/remove")
+	public ModelAndView remove(@RequestParam("id") String id, RedirectAttributes redirectAttributes) {
+		try {
+			Aluno aluno = alunoDao.load(Integer.parseInt(id));
+			if(aluno!=null) {
+				alunoDao.remove(aluno);
+				redirectAttributes.addFlashAttribute("sucesso", "Aluno removido com sucesso!");
+			}
+		} catch (Exception e) {
+			redirectAttributes.addFlashAttribute("sucesso", "Falho remover aluno! Chave estrangeira documentos.");
+		}
+		return new ModelAndView("redirect:form");
 	}
 }

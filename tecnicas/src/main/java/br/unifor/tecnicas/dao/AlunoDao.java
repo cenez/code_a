@@ -33,4 +33,13 @@ public class AlunoDao {
 		query.setParameter("id", id);
 		return query.getResultList();
 	}
+	public void remove(Aluno aluno) {
+		Query query = manager.createQuery("delete Diploma where aluno_id = :id");
+		query.setParameter("id", aluno.getId());
+		query.executeUpdate();
+		
+		query = manager.createQuery("delete Aluno where id = :id");
+		query.setParameter("id", aluno.getId());
+		query.executeUpdate();
+	}
 }

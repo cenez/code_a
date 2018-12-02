@@ -2,7 +2,6 @@ package br.unifor.tecnicas.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,8 +20,8 @@ public class Aluno {
 	
 	@ElementCollection
 	private List<Documento> documentos;
-
-	@OneToMany(mappedBy="aluno", cascade=CascadeType.ALL)
+	
+	@OneToMany(mappedBy = "aluno")
 	protected List<Diploma> diplomas;
 	
 	public Aluno() {}

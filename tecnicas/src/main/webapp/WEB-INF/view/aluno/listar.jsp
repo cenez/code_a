@@ -6,6 +6,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Listagem de aluno</title>
+	<script type="text/javascript">
+		window.onload = function listar(){
+			var titulo = document.getElementById("aluno_nome").innerHTML;
+			document.getElementById("diploma_titulo").innerHTML = titulo;
+		};
+	</script>
 </head>
 <body>
   <div>
@@ -15,14 +21,20 @@
 			<tr>
 				<td bgcolor="orange">Nome</td>
 				<td bgcolor="orange">Endereco</td>
-				<td bgcolor="orange" colspan="2">Diploma</td>
+				<td bgcolor="orange" colspan="3">Diploma</td>
 			</tr>
-			<c:forEach items="${alunos }" var="aluno">
+			<c:forEach items="${alunos }" var="aluno" varStatus="status">
 				<tr>
 					<td>${aluno.nome}</td>
 					<td>${aluno.endereco }</td>
 					<td><input type="submit" value="ADD" onclick="location. href= '/tecnicas/aluno/${aluno.id}'"></td>
 					<td><input type="submit" value="VER" onclick="location. href= '/tecnicas/aluno/form/${aluno.id}'"></td>
+					<td>
+						<form action="/tecnicas/aluno/remove" method="get">
+							<input type="hidden" name="id" value=${aluno.id }>
+							<button type="submit">REMOVE</button>
+						</form>
+					</td>					
 				</tr>
 			</c:forEach>
 		</table>
@@ -30,12 +42,11 @@
 	<div style="float: left;">
 		<table>
 			<tr>
-				<td colspan="2" bgcolor="orange">Registros Diploma</td>
-			</tr>
+				<td id="diploma_titulo" colspan="1" bgcolor="orange"></td>
 			<c:forEach items="${diplomas }" var="diploma">
 				<tr>
 					<td>${diploma.registro}</td>
-					<td>${diploma.aluno.nome }</td>
+					<td id="aluno_nome" style="display:none;"><b>${diploma.aluno.nome }</b></td>
 				</tr>
 			</c:forEach>
 		</table>
