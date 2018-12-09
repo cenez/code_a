@@ -21,20 +21,21 @@
 			<tr>
 				<td bgcolor="orange">Nome</td>
 				<td bgcolor="orange">Endereco</td>
-				<td bgcolor="orange" colspan="3">Diploma</td>
+				<td bgcolor="orange">Aluno</td>
+				<td bgcolor="orange" colspan="2">Diploma</td>
 			</tr>
 			<c:forEach items="${alunos }" var="aluno" varStatus="status">
 				<tr>
 					<td>${aluno.nome}</td>
 					<td>${aluno.endereco }</td>
-					<td><input type="submit" value="ADD" onclick="location. href= '/tecnicas/aluno/${aluno.id}'"></td>
-					<td><input type="submit" value="VER" onclick="location. href= '/tecnicas/aluno/form/${aluno.id}'"></td>
 					<td>
 						<form action="/tecnicas/aluno/remove" method="get">
 							<input type="hidden" name="id" value=${aluno.id }>
-							<button type="submit">REMOVE</button>
+							<button type="submit">DEL</button>
 						</form>
 					</td>					
+					<td><input type="submit" value="ADD" onclick="location. href= '/tecnicas/aluno/${aluno.id}'"></td>
+					<td><input type="submit" value="VER" onclick="location. href= '/tecnicas/aluno/form/${aluno.id}'"></td>
 				</tr>
 			</c:forEach>
 		</table>

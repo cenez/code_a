@@ -47,6 +47,8 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter{
 	}
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-	    configurer.enable();
+		//Por padrão, o Spring MVC nega o acesso à pasta resources. 
+		//Extender WebMvcConfigurerAdapter e sobrescrever este método
+	    configurer.enable(); 	    
 	}
 }
