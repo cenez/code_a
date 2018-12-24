@@ -6,7 +6,7 @@ import java.util.Stack;
 
 import plano2d.common.Point;
 
-public class Graham implements IDynamicDrawable {
+public class Graham implements IIncrementalDrawable {
 	private int sleep = 50;
 	private Point polo;
 	private Point[] points = new Point[0];
