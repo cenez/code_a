@@ -10,7 +10,7 @@ import fecho.common.PlanoCartesiano;
 import fecho.util.ServicePontos;
 
 @SuppressWarnings("serial")
-public class Container extends JPanel implements Runnable, KeyListener {
+public class TestsContainer extends JPanel implements Runnable, KeyListener {
 	//Controle de plotagem e refresh
 	private int sleep = 2000;
 	private Tela tela;
@@ -20,7 +20,7 @@ public class Container extends JPanel implements Runnable, KeyListener {
 	private Graham graham;
 	private PlanoCartesiano plano;
 	
-	public Container(int largura, int altura) {
+	public TestsContainer(int largura, int altura) {
 		super();
 		this.setSize(largura, altura);
 		this.tela = new Tela(this);

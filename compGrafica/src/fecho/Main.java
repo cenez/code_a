@@ -3,8 +3,6 @@ package fecho;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-import fecho.view.Container;
-
 @SuppressWarnings("serial")
 public class Main extends JFrame {
 	public Main() {
