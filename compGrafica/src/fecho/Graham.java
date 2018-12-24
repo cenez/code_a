@@ -7,7 +7,7 @@ import java.util.Stack;
 import plano2d.common.Point;
 
 public class Graham implements IDynamicDrawable {
-	private int sleep = 1;
+	private int sleep = 50;
 	private Point polo;
 	private Point[] points = new Point[0];
 	
@@ -18,7 +18,7 @@ public class Graham implements IDynamicDrawable {
 	public void draw(Graphics2D g2d, double maxX, double maxY) { draw(null, g2d, maxX, maxY); }
 	
 	private void draw(Tela tela, Graphics2D g2d, double maxX, double maxY) {
-		Stack<Point> fecho = new Stack<Point>();
+		Stack<Point> fecho = new Stack<Point>(); //cnz
 		int minYX = 0;
 		
 	    if (points.length < 3) return;
@@ -43,7 +43,7 @@ public class Graham implements IDynamicDrawable {
 	    
 	    for (int i = 3; i < points.length; i++) {
 	        Point topo = fecho.pop();
-	        while (fecho.lastElement().ccw(topo, points[i]) != -1)   {
+	        while (fecho.size()>0 && (fecho.lastElement().ccw(topo, points[i]) != -1))   {
 	        	fecho.lastElement().drawLineTo(g2d, topo, Color.BLACK);
 	        	topo.draw(g2d, Color.PINK);
 	        	

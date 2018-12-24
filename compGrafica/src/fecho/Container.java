@@ -8,7 +8,7 @@ import javax.swing.JProgressBar;
 @SuppressWarnings("serial")
 public class Container extends JPanel implements Runnable, KeyListener {
 	//Controle de plotagem e refresh
-	private int sleep = 100;
+	private int sleep = 2000;
 	private Tela tela;
 	private JProgressBar bar = new JProgressBar(0, 100);
 	

@@ -7,7 +7,7 @@ import java.awt.geom.Line2D;
 public class Point {
 	private final int LEFT = -1, RIGHT = 1, ON_THE_LINE = 0;
 	public double x, y;
-	public static final int SIZE = 5;
+	public static final int SIZE = 7;
 	
 	public Point(double x, double y) { this.x = x; this.y = y; }
 
@@ -70,5 +70,24 @@ public class Point {
 	@Override
 	public String toString() {
 		return "["+x+","+y+"]";
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Point) {
+			Point p = (Point) obj;
+			return this.x==p.x && this.y==p.y;
+		}
+		return false;
+	}
+	@Override
+	public int hashCode() {
+		return pairingFunction ((int)this.x, (int)this.y); 
+	}
+	public static int pairingFunction (int a, int b) {
+		long A = (long)(a >= 0 ? 2 * (long)a : -2 * (long)a - 1);
+		long B = (long)(b >= 0 ? 2 * (long)b : -2 * (long)b - 1);
+		long C = (long)((A >= B ? A * A + A + B : A + B * B) / 2);
+		long R = a < 0 && b < 0 || a >= 0 && b >= 0 ? C : -C - 1;
+		return (int)R;
 	}
 }
