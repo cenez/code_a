@@ -5,7 +5,8 @@ import geometrics.Point;
 /*
  * QuickSort Adaptado para ordenar um conjunto de Points, 
  * tendo como referência um ponto polo
- * Onde esse ponto polo pode ser aquele com menor Y (Se Ys iguais, tomar menor X)
+ * Onde esse ponto polo pode qualquer posicao, como:
+ * a origem, menor minYXCompareTo(), menor minXYCompareTo() ...
  * */
 
 public class SortPoint { 
@@ -24,11 +25,11 @@ public class SortPoint {
         A[i + 1] = pivo;
         return i + 1;
     }
-    public static final void SORT(Point referencia, Point[] A, int p, int r) {
+    public static final void SORT(Point polo, Point[] A, int p, int r) {
         if (p < r) {
-            int q = PARTITION(referencia, A, p, r);
-            SORT(referencia,A, p, q - 1);
-            SORT(referencia,A, q + 1, r);
+            int q = PARTITION(polo, A, p, r);
+            SORT(polo,A, p, q - 1);
+            SORT(polo,A, q + 1, r);
         }
     }
 }
