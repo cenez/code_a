@@ -41,7 +41,8 @@ public class Point {
 
 	/* 
 	 * É preciso que algum polo (this) chame este método
-	 * Se a < b em relacao ao polo, o método retorna true
+	 * Se polo -> b -> c anti-horário, b menor que c
+	 * caso contrário, o menor é aquele com menor distância até o polo
 	*/
 	public boolean polarOrder(Point b, Point c)  {
 	    int order = this.ccw(b, c);

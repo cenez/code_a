@@ -13,12 +13,12 @@ public class ServicePontos {
 //		l.add(new Point(-250,200));
 //		l.add(new Point(-100,100));
 //		l.add(new Point(-50,   0));
-//		l.add(new Point(-50, 380));
-//		l.add(new Point(100,-350));
+//		l.add(new Point(-50, 400));
 //		l.add(new Point(0,   -50));
 //		l.add(new Point(0,    50));
 //		l.add(new Point(0,   350));
 //		l.add(new Point(50,  100));
+//		l.add(new Point(100,-350));
 //		l.add(new Point(100,  50));
 //		l.add(new Point(200,-300));
 //		l.add(new Point(250,   0));
