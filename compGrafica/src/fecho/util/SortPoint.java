@@ -1,6 +1,6 @@
-package fecho;
+package fecho.util;
 
-import plano2d.common.Point;
+import fecho.common.Point;
 
 /*
  * QuickSort Adaptado para ordenar um conjunto de Points, 

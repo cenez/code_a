@@ -1,4 +1,4 @@
-package fecho;
+package fecho.common;
 
 import java.awt.Graphics2D;
 

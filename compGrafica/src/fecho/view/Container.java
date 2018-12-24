@@ -1,9 +1,13 @@
-package fecho;
+package fecho.view;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+
+import fecho.Graham;
+import fecho.common.PlanoCartesiano;
+import fecho.util.ServicePontos;
 
 @SuppressWarnings("serial")
 public class Container extends JPanel implements Runnable, KeyListener {

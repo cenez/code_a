@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Stack;
 
-import plano2d.common.Point;
+import fecho.common.IIncrementalDrawable;
+import fecho.common.Point;
+import fecho.util.SortPoint;
+import fecho.view.Tela;
 
 public class Graham implements IIncrementalDrawable {
-	private int sleep = 50;
+	private int sleep = 10;
 	private Point polo;
 	private Point[] points = new Point[0];
 	

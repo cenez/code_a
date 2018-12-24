@@ -1,4 +1,4 @@
-package plano2d.common;
+package fecho.common;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

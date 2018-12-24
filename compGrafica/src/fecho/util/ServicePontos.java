@@ -1,10 +1,10 @@
-package fecho;
+package fecho.util;
 
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Random;
 
-import plano2d.common.Point;
+import fecho.common.Point;
 
 public class ServicePontos {
 	public static Point[] pontos() {
