@@ -9,7 +9,7 @@ public class Main extends JFrame {
 		int largura = 800, altura = 830;
 		setTitle("Graham 2D");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		add(new Container(largura, altura));
+		add(new JPanelGraham(largura, altura));
 		setSize(largura, altura);
 		setLocationRelativeTo(null);
 	}

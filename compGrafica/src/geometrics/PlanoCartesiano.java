@@ -1,4 +1,4 @@
-package fecho.common;
+package geometrics;
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.Stroke;

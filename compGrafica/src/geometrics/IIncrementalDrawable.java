@@ -1,6 +1,6 @@
-package fecho.common;
+package geometrics;
 
-import fecho.view.Tela;
+import commons.Tela;
 
 public interface IIncrementalDrawable extends IDrawable {
 	void draw(Tela tela);

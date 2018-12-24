@@ -1,17 +1,17 @@
 package fecho;
 import java.awt.event.KeyEvent;
 
-import fecho.common.PlanoCartesiano;
-import fecho.util.ServicePontos;
-import fecho.view.ContainerBase;
+import commons.JPanelDraw;
+import geometrics.PlanoCartesiano;
+import util.ServicePontos;
 
 @SuppressWarnings("serial")
-public class Container extends ContainerBase {
+public class JPanelGraham extends JPanelDraw {
 	//Componentes visuais
 	private Graham graham;
 	private PlanoCartesiano plano;
 	
-	public Container(int largura, int altura) {
+	public JPanelGraham(int largura, int altura) {
 		super(largura, altura);
 	}
 	@Override

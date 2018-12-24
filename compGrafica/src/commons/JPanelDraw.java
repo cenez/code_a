@@ -1,17 +1,17 @@
-package fecho.view;
+package commons;
 import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
 @SuppressWarnings("serial")
-public abstract class ContainerBase extends JPanel implements Runnable, KeyListener {
+public abstract class JPanelDraw extends JPanel implements Runnable, KeyListener {
 	//Controle de plotagem e refresh
 	protected final Tela tela;
 	private final JProgressBar bar = new JProgressBar(0, 100);
 	private int sleeper = 0;
 	
-	public ContainerBase(int largura, int altura) {
+	public JPanelDraw(int largura, int altura) {
 		super();
 		this.setSize(largura, altura);
 		this.tela = new Tela(this);

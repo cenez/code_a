@@ -1,4 +1,4 @@
-package fecho.common;
+package geometrics;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

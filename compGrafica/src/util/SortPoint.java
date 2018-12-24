@@ -1,6 +1,6 @@
-package fecho.util;
+package util;
 
-import fecho.common.Point;
+import geometrics.Point;
 
 /*
  * QuickSort Adaptado para ordenar um conjunto de Points, 

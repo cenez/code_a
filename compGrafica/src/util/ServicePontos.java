@@ -1,10 +1,10 @@
-package fecho.util;
+package util;
 
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Random;
 
-import fecho.common.Point;
+import geometrics.Point;
 
 public class ServicePontos {
 	public static Point[] pontos() {

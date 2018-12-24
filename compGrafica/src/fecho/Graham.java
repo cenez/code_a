@@ -4,10 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Stack;
 
-import fecho.common.IIncrementalDrawable;
-import fecho.common.Point;
-import fecho.util.SortPoint;
-import fecho.view.Tela;
+import commons.Tela;
+import geometrics.IIncrementalDrawable;
+import geometrics.Point;
+import util.SortPoint;
 
 public class Graham implements IIncrementalDrawable {
 	private int sleep = 10;

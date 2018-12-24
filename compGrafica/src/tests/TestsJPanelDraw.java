@@ -1,16 +1,17 @@
-package fecho.view;
+package tests;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
+import commons.Tela;
 import fecho.Graham;
-import fecho.common.PlanoCartesiano;
-import fecho.util.ServicePontos;
+import geometrics.PlanoCartesiano;
+import util.ServicePontos;
 
 @SuppressWarnings("serial")
-public class TestsContainer extends JPanel implements Runnable, KeyListener {
+public class TestsJPanelDraw extends JPanel implements Runnable, KeyListener {
 	//Controle de plotagem e refresh
 	private int sleep = 2000;
 	private Tela tela;
@@ -20,7 +21,7 @@ public class TestsContainer extends JPanel implements Runnable, KeyListener {
 	private Graham graham;
 	private PlanoCartesiano plano;
 	
-	public TestsContainer(int largura, int altura) {
+	public TestsJPanelDraw(int largura, int altura) {
 		super();
 		this.setSize(largura, altura);
 		this.tela = new Tela(this);
