@@ -17,6 +17,7 @@ public class Container extends JPanel implements Runnable, KeyListener {
 	private PlanoCartesiano plano;
 	
 	public Container(int largura, int altura) {
+		super();
 		this.setSize(largura, altura);
 		this.tela = new Tela(this);
 		this.setFocusable(true);
