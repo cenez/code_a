@@ -1,4 +1,4 @@
-package app;
+package app_snake;
 import java.awt.event.KeyEvent;
 
 import commons.JPanelDraw;
