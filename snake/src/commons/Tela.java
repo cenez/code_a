@@ -22,7 +22,7 @@ public class Tela {
 		this.CONTAINER = container;
 		container.addComponentListener(new ComponentAdapter() {
 		    public void componentResized(ComponentEvent componentEvent) {
-		    	IMAGEM_BUF = CONTAINER.createVolatileImage(largura(), altura());
+		    	IMAGEM_BUF = CONTAINER.createVolatileImage(width(), height());
 		    	PINTOR = IMAGEM_BUF.createGraphics();
 		    	adaptCartesianCoordinates(getPINTOR());
 				clear();
@@ -36,13 +36,13 @@ public class Tela {
 		g2d.translate(xTrans, yTrans);
 		g2d.scale(1, -1);
 	}
-	public void draw(IDrawable obj) { obj.draw(this.PINTOR, halfLargura(), halfAltura()); }
+	public void draw(IDrawable obj) { obj.draw(this.PINTOR, halfWidth(), halfHeight()); }
 	
 	public void clear() {
 		Graphics2D g2d = getPINTOR();
 		g2d.setColor(Color.BLACK);
-		g2d.clearRect(-1*((int)halfLargura()), -1*((int)halfAltura()), largura(), altura());
-		g2d.fill(new Rectangle2D.Double(-1*halfLargura(),  -1*halfAltura(),  largura(),  altura()));
+		g2d.clearRect(-1*((int)halfWidth()), -1*((int)halfHeight()), width(), height());
+		g2d.fill(new Rectangle2D.Double(-1*halfWidth(),  -1*halfHeight(),  width(),  height()));
 		g2d.setColor(Color.WHITE);
 	}
 	public void plot() { 
@@ -50,10 +50,10 @@ public class Tela {
 		g.drawImage(IMAGEM_BUF, 0, 0, null);
 		g.dispose(); //memory free
 	}
-	public int largura() { return WIDTH = this.CONTAINER.getWidth(); }
-	public int altura() { return HEIGHT = this.CONTAINER.getHeight(); }
-	public double halfLargura() { return this.CONTAINER.getWidth()/2.0; }
-	public double halfAltura() { return this.CONTAINER.getHeight()/2.0; }
+	public int width() { return WIDTH = this.CONTAINER.getWidth(); }
+	public int height() { return HEIGHT = this.CONTAINER.getHeight(); }
+	public double halfWidth() { return this.CONTAINER.getWidth()/2.0; }
+	public double halfHeight() { return this.CONTAINER.getHeight()/2.0; }
 	public Graphics2D getPINTOR() {
 		return PINTOR;
 	}
