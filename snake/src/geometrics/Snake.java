@@ -57,7 +57,7 @@ public class Snake implements IDrawable {
 		if(this.mvx > 0) return update();
 		return false;
 	}
-	public boolean update() {
+	private boolean update() {
 		if(!this._die) { //if(this.mvx != 0 || this.mvy !=0) { 
 			for(int i = this.tail.size() - 1; i > 0; i--) {
 				this.tail.get(i).setXY(this.tail.get(i - 1).X, this.tail.get(i - 1).Y);
