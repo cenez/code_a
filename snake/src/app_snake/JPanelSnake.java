@@ -1,9 +1,9 @@
 package app_snake;
 import java.awt.event.KeyEvent;
 
+import app_snake.geometric.Snake;
 import commons.JPanelDraw;
 import geometrics.PlanoCartesiano;
-import geometrics.Snake;
 
 @SuppressWarnings("serial")
 public class JPanelSnake extends JPanelDraw {

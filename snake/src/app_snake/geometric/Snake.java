@@ -1,4 +1,4 @@
-package geometrics;
+package app_snake.geometric;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import commons.Tela;
+import geometrics.IDrawable;
+import geometrics.Point;
 
 public class Snake implements IDrawable {
 	private final Color corHead = Color.RED;

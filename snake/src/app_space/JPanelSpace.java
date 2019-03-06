@@ -1,27 +1,23 @@
 package app_space;
 import java.awt.event.KeyEvent;
 
+import app_space.geometrics.Nave;
 import commons.JPanelDraw;
 import geometrics.PlanoCartesiano;
-import geometrics.Snake;
 
 @SuppressWarnings("serial")
 public class JPanelSpace extends JPanelDraw {
-	private Snake cobra;
+	private Nave nave;
 	private PlanoCartesiano plano;
-	private boolean up=false, down=false, left=false, right = false;
+	private boolean up=false, down=false;
 	public JPanelSpace(int largura, int altura) {
 		super(largura, altura);
 	}
 	@Override
 	public void loop() {
-		this.sleeping(10);
-		
-		if(this.up)         this.up    = cobra.up();
-		else if(this.down)  this.down  = cobra.down();
-		else if(this.left)  this.left  = cobra.left();
-		else if(this.right) this.right = cobra.right();
-		
+		this.sleeping(100);
+		if(this.up)         this.up    = nave.up();
+		else if(this.down)  this.down  = nave.down();
 		this.update();
 	}
 	@Override
@@ -31,15 +27,15 @@ public class JPanelSpace extends JPanelDraw {
 	@Override
 	public void keyPressed(KeyEvent e) { 
 		int k = e.getKeyCode();
-		this.up = this.down = this.left = this.right = false;
+		this.up = this.down = false;
 		
-		if(k == KeyEvent.VK_UP)    { this.up = cobra.up();       this.down = this.up?false:true;    }
-		if(k == KeyEvent.VK_DOWN)  { this.down = cobra.down();   this.up = this.down?false:true;    }
-		if(k == KeyEvent.VK_LEFT)  { this.left = cobra.left();   this.right = this.left?false:true; }
-		if(k == KeyEvent.VK_RIGHT) { this.right = cobra.right(); this.left = this.right?false:true; }
+		if(k == KeyEvent.VK_UP)    { this.up = nave.up();       this.down = this.up?false:true;    }
+		if(k == KeyEvent.VK_DOWN)  { this.down = nave.down();   this.up = this.down?false:true;    }
+		if(k == KeyEvent.VK_LEFT)  { nave.left();   }
+		if(k == KeyEvent.VK_RIGHT) { nave.right(); }
 	}
 	protected void inicializar() { 
-		cobra = new Snake();
+		nave = new Nave(this);
 		plano = new PlanoCartesiano();
 	}
 	protected void update() { 
@@ -48,7 +44,7 @@ public class JPanelSpace extends JPanelDraw {
 		this.tela.plot();
 	}
 	protected void renderizar() {
-		this.tela.draw(cobra);
+		this.tela.draw(nave);
 		this.tela.draw(plano);
 	}
 }

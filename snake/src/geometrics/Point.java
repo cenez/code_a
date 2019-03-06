@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class Point implements IDrawable {
-	protected double X, Y;
+	public double X, Y;
 	public static final int SIZE = 7;
 	
 	public Point(double x, double y) { this.X = x; this.Y = y; }
