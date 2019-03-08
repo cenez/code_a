@@ -1,7 +1,7 @@
 package fiscal.impostos;
 
 public abstract class ImpostoEstadual extends Imposto {
-	String uf;
+	private String uf;
 	public String UF() {
 		return uf;
 	}

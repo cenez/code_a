@@ -1,7 +1,7 @@
 package fiscal.tributario;
 
 public abstract class Tributavel { 
-	double value;
+	protected double value;
 	
 	public Tributavel(double _value){
 		this.value = _value;

@@ -1,5 +1,0 @@
-#!/bin/sh
-cp poo_ads/.project .
-rm -rf poo_ads
-cp -a poo_cc_eng poo_ads
-mv .project poo_ads/
