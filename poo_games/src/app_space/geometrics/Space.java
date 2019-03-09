@@ -5,15 +5,16 @@ import java.awt.Graphics2D;
 import java.awt.image.ImageObserver;
 
 import commons.Tela;
+import geometrics.SpaceCraft;
 import geometrics.IDrawable;
 
-public class Nave implements IDrawable {
-	private final Body body;
+public class Space implements IDrawable {
+	private final SpaceCraft body;
 
-	private int mvx=-Body.SIZE, mvy=0;
+	private int mvx=-SpaceCraft.SIZE, mvy=0;
 	private int move = 5;
 
-	public Nave(ImageObserver o) { body = new Body(50, o, -25, -1*Tela.HEIGHT/2.0); } 
+	public Space(ImageObserver o) { body = new SpaceCraft(50, o, -25, -1*Tela.HEIGHT/2.0); } 
 	public boolean up() {
 		this.mvy = move;
 		this.mvx = 0;
@@ -40,9 +41,9 @@ public class Nave implements IDrawable {
 		return true;
 	}
 	private void outBound() {
-		if(this.body.X>(Tela.WIDTH/2.0 - Body.SIZE)) this.body.X = 1*Tela.WIDTH/2.0 - Body.SIZE;
+		if(this.body.X>(Tela.WIDTH/2.0 - SpaceCraft.SIZE)) this.body.X = 1*Tela.WIDTH/2.0 - SpaceCraft.SIZE;
 		if(this.body.X<-1*Tela.WIDTH/2.0) this.body.X = -1*Tela.WIDTH/2.0;
-		if(this.body.Y>(Tela.HEIGHT/2.0 - Body.SIZE)) this.body.Y = 1*Tela.HEIGHT/2.0 - Body.SIZE;
+		if(this.body.Y>(Tela.HEIGHT/2.0 - SpaceCraft.SIZE)) this.body.Y = 1*Tela.HEIGHT/2.0 - SpaceCraft.SIZE;
 		if(this.body.Y<-1*Tela.HEIGHT/2.0) this.body.Y = -1*Tela.HEIGHT/2.0;
 	}
 	@Override

@@ -1,13 +1,13 @@
 package app_space;
 import java.awt.event.KeyEvent;
 
-import app_space.geometrics.Nave;
+import app_space.geometrics.Space;
 import commons.JPanelDraw;
 import geometrics.PlanoCartesiano;
 
 @SuppressWarnings("serial")
 public class JPanelSpace extends JPanelDraw {
-	private Nave nave;
+	private Space nave;
 	private PlanoCartesiano plano;
 	private boolean up=false, down=false;
 	public JPanelSpace(int largura, int altura) {
@@ -35,7 +35,7 @@ public class JPanelSpace extends JPanelDraw {
 		if(k == KeyEvent.VK_RIGHT) { nave.right(); }
 	}
 	protected void inicializar() { 
-		nave = new Nave(this);
+		nave = new Space(this);
 		plano = new PlanoCartesiano();
 	}
 	protected void update() { 
