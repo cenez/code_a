@@ -8,13 +8,13 @@ import commons.Tela;
 import geometrics.SpaceCraft;
 import geometrics.IDrawable;
 
-public class Space implements IDrawable {
+public class SpaceCraftManager implements IDrawable {
 	private final SpaceCraft body;
 
 	private int mvx=-SpaceCraft.SIZE, mvy=0;
 	private int move = 5;
 
-	public Space(ImageObserver o) { body = new SpaceCraft(50, o, -25, -1*Tela.HEIGHT/2.0); } 
+	public SpaceCraftManager(ImageObserver o) { body = new SpaceCraft(50, o, -25, -1*Tela.HEIGHT/2.0); } 
 	public boolean up() {
 		this.mvy = move;
 		this.mvx = 0;
