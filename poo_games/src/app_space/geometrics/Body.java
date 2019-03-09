@@ -29,8 +29,8 @@ public class Body implements IDrawable {
 		g2d.setColor(cor);
 		g2d.drawArc((int) this.X, (int) this.Y, Body.SIZE, Body.SIZE, 180, 180);
 		if(observer!=null) {
-			Image queijo = new ImageIcon(this.getClass().getResource(file)).getImage();
-			g2d.drawImage(queijo, (int)this.X, (int)this.Y, observer);
+			Image nave = new ImageIcon(this.getClass().getResource(file)).getImage();
+			g2d.drawImage(nave, (int)this.X, (int)this.Y, observer);
 		}
 	}
 	@Override
