@@ -15,12 +15,12 @@ public class JPanelSnake extends JPanelDraw {
 	}
 	@Override
 	public void loop() {
-		this.sleeping(10);
+		this.sleeping(100);
 		
-		if(this.up)         this.up    = cobra.up();
-		else if(this.down)  this.down  = cobra.down();
-		else if(this.left)  this.left  = cobra.left();
-		else if(this.right) this.right = cobra.right();
+		if(this.up)         cobra.up();
+		else if(this.down)  cobra.down();
+		else if(this.left)  cobra.left();
+		else if(this.right) cobra.right();
 		
 		this.update();
 	}
@@ -31,12 +31,10 @@ public class JPanelSnake extends JPanelDraw {
 	@Override
 	public void keyPressed(KeyEvent e) { 
 		int k = e.getKeyCode();
-		this.up = this.down = this.left = this.right = false;
-		
-		if(k == KeyEvent.VK_UP)    { this.up = cobra.up();       this.down = this.up?false:true;    }
-		if(k == KeyEvent.VK_DOWN)  { this.down = cobra.down();   this.up = this.down?false:true;    }
-		if(k == KeyEvent.VK_LEFT)  { this.left = cobra.left();   this.right = this.left?false:true; }
-		if(k == KeyEvent.VK_RIGHT) { this.right = cobra.right(); this.left = this.right?false:true; }
+		if(k == KeyEvent.VK_UP)     { this.up =    true; this.right = this.left  = this.down  = false;}
+		if(k == KeyEvent.VK_DOWN)   { this.down =  true; this.up    = this.right = this.left  = false;}
+		if(k == KeyEvent.VK_LEFT)   { this.left =  true; this.down  = this.up    = this.right = false;}
+		if(k == KeyEvent.VK_RIGHT)  { this.right = true; this.left  = this.down  = this.up    = false;}
 	}
 	protected void inicializar() { 
 		cobra = new Snake();
