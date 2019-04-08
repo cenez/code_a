@@ -1,0 +1,6 @@
+#!/bin/sh
+case $1 in '') echo "Folder??" ;; *)
+	nome=$(echo $1 | cut -d'/' -f 1)
+	zip -r $nome.zip $nome -e
+;; esac
+
