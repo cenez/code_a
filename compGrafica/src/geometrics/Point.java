@@ -7,10 +7,10 @@ import java.awt.geom.Line2D;
 public class Point implements IDrawable {
 	private final int LEFT = -1, RIGHT = 1, ON_THE_LINE = 0;
 	public double x, y;
-	public static final int SIZE = 7;
+	public static int SIZE = 7;
 	
 	public Point(double x, double y) { this.x = x; this.y = y; }
-
+	public Point(int len, double x, double y) { this(x,y); SIZE = len; }
 	public boolean minYXCompareTo(Point b) {
         if (this.y != b.y)
             return this.y < b.y;
