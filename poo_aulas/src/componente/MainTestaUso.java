@@ -56,6 +56,10 @@ public class MainTestaUso extends JFrame {
 		    modelo.add(new Funcionario(2,"Ana","Pesquisadora",cc));
 		    modelo.add(new Funcionario(3,"Paulo","Pesquisador",cc));
 		    tabela.setModel(modelo);
+		    
+			for (int i =0; i<modelo.getColumnCount();i++) {
+				tabela.setDefaultRenderer(modelo.getColumnClass(i), new TableModel.TableCellRenderer());
+			}
 		  }
 		});
 		painelBotoes.add(btnLoad);
