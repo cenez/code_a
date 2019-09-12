@@ -5,71 +5,69 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 
-import commons.Tela;
-import geometrics.IDrawable;
+import geometrics.BaseLimitedDrawable;
 import geometrics.Point;
 
-public class Snake implements IDrawable {
+/* Movimento
+ * mvx diz o sentido que cobra segue na coordenada X do plano cartesiano
+ * mvy diz o sentido que cobra segue na coordenada Y do plano cartesiano
+ * mvx==0 ou mvy==0 diz que esse movimento é estável respectivamente para sentidos X e Y
+ */
+public class Snake extends BaseLimitedDrawable {
 	private final Color corHead = Color.RED;
 	private final Color corTail = Color.WHITE;
 	private final Point head = new Point(0, 0);
 	private final List<Point> tail = new ArrayList<>();
 	
-	/* Movimento
-	 * mvx diz o sentido que cobra segue na coordenada X do plano cartesiano
-	 * mvy diz o sentido que cobra segue na coordenada Y do plano cartesiano
-	 * mvx==0 ou mvy==0 diz que esse movimento é estável respectivamente para sentidos X e Y
-	 */
-	private int mvx=-Point.SIZE, mvy=0; 
+	private int sentidoX=-Point.SIZE, sentidoY=0; 
 
-	public Snake() {
+	public Snake(double xMax, double yMax) {
+		super(xMax, yMax);
 		tail.add(new Point(Point.SIZE * 1, 0));
 		tail.add(new Point(Point.SIZE * 2, 0));
 	}
 	public void up() {
-		if(this.mvy == 0) {
-			this.mvy = Point.SIZE;
-			this.mvx = 0;
+		if(sentidoY == 0) {
+			sentidoY = Point.SIZE;
+			sentidoX = 0;
 		} 
-		update();
 	}
 	public void down() {
-		if(this.mvy == 0) {
-			this.mvy = -Point.SIZE;
-			this.mvx = 0;
+		if(sentidoY == 0) {
+			sentidoY = -Point.SIZE;
+			sentidoX = 0;
 		} 
-		update();
 	}
 	public void left() {
-		if(this.mvx == 0) {
-			this.mvy = 0;
-			this.mvx = -Point.SIZE;
+		if(sentidoX == 0) {
+			sentidoY = 0;
+			sentidoX = -Point.SIZE;
 		} 
-		update();
 	}
 	public void right() {
-		if(this.mvx == 0) {
-			this.mvy = 0;
-			this.mvx = Point.SIZE;
+		if(sentidoX == 0) {
+			sentidoY = 0;
+			sentidoX = Point.SIZE;
 		} 
-		update();
+	}
+	private void ring() {
+		if(head.X >    MAX_X) head.X = -1*MAX_X + Point.SIZE;
+		if(head.X < -1*MAX_X) head.X =    MAX_X - Point.SIZE;
+		if(head.Y >    MAX_Y) head.Y = -1*MAX_Y + Point.SIZE;
+		if(head.Y < -1*MAX_Y) head.Y =    MAX_Y - Point.SIZE;
 	}
 	private void update() {
-		for(int i = this.tail.size() - 1; i > 0; i--) {
-			this.tail.get(i).setXY(this.tail.get(i - 1).X, this.tail.get(i - 1).Y);
-		}
-		this.tail.get(0).setXY(this.head.X, this.head.Y);
-		this.head.move(this.mvx, this.mvy);
-		this.outBound();
-	}
-	private void outBound() {
-		if(this.head.X>Tela.WIDTH/2.0) this.head.X = -1*Tela.WIDTH/2.0 + Point.SIZE;
-		if(this.head.X<-1*Tela.WIDTH/2.0) this.head.X = Tela.WIDTH/2.0 - Point.SIZE;
-		if(this.head.Y>Tela.HEIGHT/2.0) this.head.Y = -1*Tela.HEIGHT/2.0 + Point.SIZE;
-		if(this.head.Y<-1*Tela.HEIGHT/2.0) this.head.Y = Tela.HEIGHT/2.0 - Point.SIZE;
+		for(int i = tail.size() - 1; i > 0; i--)
+			tail.get(i).moveTO(tail.get(i - 1).X, tail.get(i - 1).Y);
+		
+		tail.get(0).moveTO(head.X, head.Y);
+		head.moveIncremental(sentidoX, sentidoY);
+		ring();
 	}
 	@Override
 	public void draw(Graphics2D g2d) {
+		update();
+		
 		g2d.setColor(corHead);
 		head.draw(g2d);
 		g2d.setColor(corTail);
@@ -77,3 +75,4 @@ public class Snake implements IDrawable {
 			p.draw(g2d);
 	}
 }
+

@@ -20,11 +20,11 @@ public class Point implements IDrawable {
 		}
 		return false;
 	}
-	public void setXY(double _x, double _y) {
+	public void moveTO(double _x, double _y) {
 		this.X = _x;
 		this.Y = _y;
 	}
-	public void move(double _x, double _y) {
+	public void moveIncremental(double _x, double _y) {
 		this.X += _x;
 		this.Y += _y;
 	}

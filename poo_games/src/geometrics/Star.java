@@ -6,18 +6,9 @@ import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
-public class Star extends ADrawableLimited {
+public class Star extends BaseLimitedDrawable {
 	public Star(double maxX, double maxY) {
 		super(maxX, maxY);
-	}
-	public void draw(Graphics2D g2d, double maxX, double maxY) {
-		for(int i = 0; i< 20; i++) {
-			Random r = new Random();
-			int x = r.nextInt()%((int)maxX);
-			int y = r.nextInt()%((int)maxY);
-	
-			g2d.draw(createStar(5, x, y, 1, 4));
-		}
 	}
 	public static Shape createStar(int num_pontas, int x, int y, double raioOut, double raioIn) {
 	    double angle = Math.PI / num_pontas;
@@ -38,5 +29,15 @@ public class Star extends ADrawableLimited {
 	    }
 	    path.closePath();
 	    return path;
+	}
+	@Override
+	public void draw(Graphics2D g2d) {
+		for(int i = 0; i< 20; i++) {
+			Random r = new Random();
+			int x = r.nextInt()%((int)this.MAX_X);
+			int y = r.nextInt()%((int)this.MAX_Y);
+			
+			g2d.draw(createStar(5, x, y, 1, 4));
+		}
 	}
 }

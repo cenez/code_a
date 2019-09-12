@@ -37,7 +37,7 @@ public class JPanelSnake extends JPanelDraw {
 		if(k == KeyEvent.VK_RIGHT)  { this.right = true; this.left  = this.down  = this.up    = false;}
 	}
 	protected void inicializar() { 
-		cobra = new Snake();
+		cobra = new Snake(tela.halfWidth(), tela.halfHeight());
 		plano = new PlanoCartesiano(tela.halfWidth(), tela.halfHeight());
 	}
 	protected void update() { 
