@@ -47,7 +47,7 @@ public class SpaceCraftManager implements IDrawable {
 		if(this.body.Y<-1*Tela.HEIGHT/2.0) this.body.Y = -1*Tela.HEIGHT/2.0;
 	}
 	@Override
-	public void draw(Graphics2D g2d, double maxX, double maxY) {
+	public void draw(Graphics2D g2d) {//, double maxX, double maxY) {
 		body.draw(g2d, Color.WHITE);
 	}
 }

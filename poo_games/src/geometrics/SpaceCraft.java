@@ -20,7 +20,7 @@ public class SpaceCraft implements IDrawable {
 	}
 	
 	@Override
-	public void draw(Graphics2D g2d, double maxX, double maxY) {
+	public void draw(Graphics2D g2d) {//, double maxX, double maxY) {
 		draw(g2d, Color.WHITE);
 	}
 	public void draw(Graphics2D g2d, Color cor) {

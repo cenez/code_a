@@ -38,8 +38,8 @@ public class JPanelSpace extends JPanelDraw {
 	}
 	protected void inicializar() { 
 		nave = new SpaceCraftManager(this);
-		plano = new PlanoCartesiano();
-		star = new Star();
+		plano = new PlanoCartesiano(tela.halfWidth(), tela.halfHeight());
+		star = new Star(tela.halfWidth(), tela.halfHeight());
 	}
 	protected void update() { 
 		this.tela.clear();

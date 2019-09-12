@@ -6,7 +6,10 @@ import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
-public class Star implements IDrawable {
+public class Star extends ADrawableLimited {
+	public Star(double maxX, double maxY) {
+		super(maxX, maxY);
+	}
 	public void draw(Graphics2D g2d, double maxX, double maxY) {
 		for(int i = 0; i< 20; i++) {
 			Random r = new Random();

@@ -1,6 +1,5 @@
 package geometrics;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class Point implements IDrawable {
@@ -10,11 +9,7 @@ public class Point implements IDrawable {
 	public Point(double x, double y) { this.X = x; this.Y = y; }
 	
 	@Override
-	public void draw(Graphics2D g2d, double maxX, double maxY) {
-		draw(g2d, Color.WHITE);
-	}
-	public void draw(Graphics2D g2d, Color cor) {
-		g2d.setColor(cor);
+	public void draw(Graphics2D g2d) {
 		g2d.fillOval((int) this.X, (int) this.Y, Point.SIZE, Point.SIZE);
 	}
 	@Override

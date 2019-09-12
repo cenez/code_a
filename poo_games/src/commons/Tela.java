@@ -36,7 +36,7 @@ public class Tela {
 		g2d.translate(xTrans, yTrans);
 		g2d.scale(1, -1);
 	}
-	public void draw(IDrawable obj) { obj.draw(this.PINTOR, halfWidth(), halfHeight()); }
+	public void draw(IDrawable obj) { obj.draw(this.PINTOR); }//, halfWidth(), halfHeight()); }
 	
 	public void clear() {
 		Graphics2D g2d = getPINTOR();

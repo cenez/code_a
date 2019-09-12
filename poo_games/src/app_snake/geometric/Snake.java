@@ -69,9 +69,11 @@ public class Snake implements IDrawable {
 		if(this.head.Y<-1*Tela.HEIGHT/2.0) this.head.Y = Tela.HEIGHT/2.0 - Point.SIZE;
 	}
 	@Override
-	public void draw(Graphics2D g2d, double maxX, double maxY) {
-		head.draw(g2d, corHead);
+	public void draw(Graphics2D g2d) {
+		g2d.setColor(corHead);
+		head.draw(g2d);
+		g2d.setColor(corTail);
 		for (Point p : tail)
-			p.draw(g2d, corTail);
+			p.draw(g2d);
 	}
 }

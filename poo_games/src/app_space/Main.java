@@ -6,7 +6,7 @@ import javax.swing.SwingUtilities;
 @SuppressWarnings("serial")
 public class Main extends JFrame {
 	public Main() {
-		int largura = 500, altura = 530;
+		int largura = 800, altura = 830;
 		setTitle("Space Game 2D");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		add(new JPanelSpace(largura, altura));
