@@ -2,6 +2,7 @@ package app_snake.geometric;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,35 +21,43 @@ public class Snake extends BaseLimitedDrawable {
 	private final List<Point> tail = new ArrayList<>();
 	
 	private int sentidoX=-Point.SIZE, sentidoY=0; 
-
+	
 	public Snake(double xMax, double yMax) {
 		super(xMax, yMax);
 		tail.add(new Point(Point.SIZE * 1, 0));
 		tail.add(new Point(Point.SIZE * 2, 0));
 	}
 	public void up() {
-		if(sentidoY == 0) {
+		if(sentidoY==0) {
 			sentidoY = Point.SIZE;
 			sentidoX = 0;
 		} 
 	}
 	public void down() {
-		if(sentidoY == 0) {
+		if(sentidoY==0) {
 			sentidoY = -Point.SIZE;
 			sentidoX = 0;
 		} 
 	}
 	public void left() {
-		if(sentidoX == 0) {
+		if(sentidoX==0) {
 			sentidoY = 0;
 			sentidoX = -Point.SIZE;
 		} 
 	}
 	public void right() {
-		if(sentidoX == 0) {
+		if(sentidoX==0) {
 			sentidoY = 0;
 			sentidoX = Point.SIZE;
 		} 
+	}
+	public void move(KeyEvent e) { 
+		int k = e.getKeyCode();
+		
+		if(k == KeyEvent.VK_UP) 		this.up();
+		else if(k == KeyEvent.VK_DOWN) 	this.down();
+		else if(k == KeyEvent.VK_LEFT) 	this.left();
+		else if(k == KeyEvent.VK_RIGHT) this.right();
 	}
 	private void ring() {
 		if(head.X >    MAX_X) head.X = -1*MAX_X + Point.SIZE;
