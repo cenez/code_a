@@ -20,35 +20,35 @@ public class Snake extends BaseLimitedDrawable {
 	private final Point head = new Point(0, 0);
 	private final List<Point> tail = new ArrayList<>();
 	
-	private int sentidoX=-Point.SIZE, sentidoY=0; 
+	private int fluxoX=-Point.SIZE, fluxoY=0; 
 	
 	public Snake(double xMax, double yMax) {
 		super(xMax, yMax);
-		tail.add(new Point(Point.SIZE * 1, 0));
-		tail.add(new Point(Point.SIZE * 2, 0));
+		for(int i = 1; i <= 4; i++)
+			tail.add(new Point(Point.SIZE * i, 0));
 	}
 	public void up() {
-		if(sentidoY==0) {
-			sentidoY = Point.SIZE;
-			sentidoX = 0;
+		if(fluxoY==0) {
+			fluxoY = Point.SIZE;
+			fluxoX = 0;
 		} 
 	}
 	public void down() {
-		if(sentidoY==0) {
-			sentidoY = -Point.SIZE;
-			sentidoX = 0;
+		if(fluxoY==0) {
+			fluxoY = -Point.SIZE;
+			fluxoX = 0;
 		} 
 	}
 	public void left() {
-		if(sentidoX==0) {
-			sentidoY = 0;
-			sentidoX = -Point.SIZE;
+		if(fluxoX==0) {
+			fluxoY = 0;
+			fluxoX = -Point.SIZE;
 		} 
 	}
 	public void right() {
-		if(sentidoX==0) {
-			sentidoY = 0;
-			sentidoX = Point.SIZE;
+		if(fluxoX==0) {
+			fluxoY = 0;
+			fluxoX = Point.SIZE;
 		} 
 	}
 	public void move(KeyEvent e) { 
@@ -70,7 +70,7 @@ public class Snake extends BaseLimitedDrawable {
 			tail.get(i).moveTO(tail.get(i - 1).X, tail.get(i - 1).Y);
 		
 		tail.get(0).moveTO(head.X, head.Y);
-		head.moveIncremental(sentidoX, sentidoY);
+		head.moveIncremental(fluxoX, fluxoY);
 		ring();
 	}
 	@Override
