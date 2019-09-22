@@ -1,4 +1,4 @@
-package app_snake.geometric;
+package snake.drawables;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -6,8 +6,8 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import geometrics.BaseLimitedDrawable;
-import geometrics.Point;
+import core.BaseLimitedDrawable;
+import drawables.Point;
 
 /* Movimento
  * mvx diz o sentido que cobra segue na coordenada X do plano cartesiano

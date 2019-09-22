@@ -1,15 +1,15 @@
-package app_space;
+package space;
 import java.awt.event.KeyEvent;
 
-import app_space.geometrics.SpaceCraftManager;
-import commons.JPanelDraw;
-import geometrics.PlanoCartesiano;
-import geometrics.Star;
+import core.JPanelDraw;
+import drawables.CartesianPlane;
+import drawables.Star;
+import space.drawables.SpaceCraftManager;
 
 @SuppressWarnings("serial")
 public class JPanelSpace extends JPanelDraw {
 	private SpaceCraftManager nave;
-	private PlanoCartesiano plano;
+	private CartesianPlane plano;
 	private Star star;
 	private boolean up=false, down=false;
 	public JPanelSpace(int largura, int altura) {
@@ -38,7 +38,7 @@ public class JPanelSpace extends JPanelDraw {
 	}
 	protected void inicializar() { 
 		nave = new SpaceCraftManager(this);
-		plano = new PlanoCartesiano(tela.halfWidth(), tela.halfHeight());
+		plano = new CartesianPlane(tela.halfWidth(), tela.halfHeight());
 		star = new Star(tela.halfWidth(), tela.halfHeight());
 	}
 	protected void update() { 

@@ -1,10 +1,12 @@
-package geometrics;
+package drawables;
 
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.util.Random;
+
+import core.BaseLimitedDrawable;
 
 public class Star extends BaseLimitedDrawable {
 	public Star(double maxX, double maxY) {

@@ -1,4 +1,4 @@
-package app_snake;
+package space;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -6,10 +6,10 @@ import javax.swing.SwingUtilities;
 @SuppressWarnings("serial")
 public class Main extends JFrame {
 	public Main() {
-		int largura = 500, altura = 530;
-		setTitle("Snake 2D");
+		int largura = 800, altura = 830;
+		setTitle("Space Game 2D");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		add(new JPanelSnake(largura, altura));
+		add(new JPanelSpace(largura, altura));
 		setSize(largura, altura);
 		setLocationRelativeTo(null);
 	}

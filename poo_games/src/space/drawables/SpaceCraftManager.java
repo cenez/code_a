@@ -1,12 +1,12 @@
-package app_space.geometrics;
+package space.drawables;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.ImageObserver;
 
-import commons.Tela;
-import geometrics.SpaceCraft;
-import geometrics.IDrawable;
+import core.IDrawable;
+import core.Tela;
+import drawables.SpaceCraft;
 
 public class SpaceCraftManager implements IDrawable {
 	private final SpaceCraft body;

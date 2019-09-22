@@ -1,13 +1,15 @@
-package geometrics;
+package drawables;
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
 import java.awt.geom.Line2D;
 
-public class PlanoCartesiano extends BaseLimitedDrawable {
+import core.BaseLimitedDrawable;
+
+public class CartesianPlane extends BaseLimitedDrawable {
 	private final int recuo = 30;
 	
-	public PlanoCartesiano(double maxX, double maxY) {
+	public CartesianPlane(double maxX, double maxY) {
 		super(maxX, maxY);
 	}
 	public void draw(Graphics2D g2d) {

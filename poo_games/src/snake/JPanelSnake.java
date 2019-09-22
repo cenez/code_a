@@ -1,14 +1,14 @@
-package app_snake;
+package snake;
 import java.awt.event.KeyEvent;
 
-import app_snake.geometric.Snake;
-import commons.JPanelDraw;
-import geometrics.PlanoCartesiano;
+import core.JPanelDraw;
+import drawables.CartesianPlane;
+import snake.drawables.Snake;
 
 @SuppressWarnings("serial")
 public class JPanelSnake extends JPanelDraw {
 	private Snake cobra;
-	private PlanoCartesiano plano;
+	private CartesianPlane plano;
 	public JPanelSnake(int largura, int altura) {
 		super(largura, altura);
 	}
@@ -27,7 +27,7 @@ public class JPanelSnake extends JPanelDraw {
 	}
 	protected void inicializar() { 
 		cobra = new Snake(tela.halfWidth(), tela.halfHeight());
-		plano = new PlanoCartesiano(tela.halfWidth(), tela.halfHeight());
+		plano = new CartesianPlane(tela.halfWidth(), tela.halfHeight());
 	}
 	protected void update() { 
 		this.tela.clear();

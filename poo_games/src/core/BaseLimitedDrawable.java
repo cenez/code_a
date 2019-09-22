@@ -1,4 +1,4 @@
-package geometrics;
+package core;
 
 public abstract class BaseLimitedDrawable implements IDrawable {
 	public final double MAX_X;

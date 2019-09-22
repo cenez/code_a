@@ -1,6 +1,8 @@
-package geometrics;
+package drawables;
 
 import java.awt.Graphics2D;
+
+import core.IDrawable;
 
 public class Point implements IDrawable {
 	public double X, Y;

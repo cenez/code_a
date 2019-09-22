@@ -1,4 +1,4 @@
-package geometrics;
+package core;
 
 import java.awt.Graphics2D;
 

@@ -1,4 +1,4 @@
-package commons;
+package core;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -7,8 +7,6 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.VolatileImage;
-
-import geometrics.IDrawable;
 
 public class Tela {
 	public static int WIDTH;
