@@ -9,10 +9,12 @@ import java.util.List;
 import core.BaseLimitedDrawable;
 import drawables.Point;
 
-/* Movimento
- * mvx diz o sentido que cobra segue na coordenada X do plano cartesiano
- * mvy diz o sentido que cobra segue na coordenada Y do plano cartesiano
- * mvx==0 ou mvy==0 diz que esse movimento é estável respectivamente para sentidos X e Y
+/* Movimento:
+ * fluxoX diz o sentido que cobra segue na coordenada X do plano cartesiano;
+ * fluxoY diz o sentido que cobra segue na coordenada Y do plano cartesiano;
+ * Em fluxoX==0 ou fluxoY==0 diz que esse movimento é estável, 
+ * respectivamente para sentidos X e Y, não existindo movimento;
+ * fluxoX ou fluxoY caminham ao passo +-Point.SIZE.
  */
 public class Snake extends BaseLimitedDrawable {
 	private final Color corHead = Color.RED;
