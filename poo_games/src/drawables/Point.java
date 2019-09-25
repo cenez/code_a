@@ -6,7 +6,7 @@ import core.IDrawable;
 
 public class Point implements IDrawable {
 	public double X, Y;
-	public static final int SIZE = 7;
+	public static final int SIZE = 8;
 	
 	public Point(double x, double y) { this.X = x; this.Y = y; }
 	
@@ -18,7 +18,9 @@ public class Point implements IDrawable {
 	public boolean equals(Object obj) {
 		if(obj instanceof Point) {
 			Point p = (Point) obj;
-			return this.X==p.X && this.Y==p.Y;
+			boolean testeX = Math.abs(((int)this.X)-((int)p.X))<=Point.SIZE;
+			boolean testeY = Math.abs(((int)this.Y)-((int)p.Y))<=Point.SIZE;
+			return testeX && testeY;
 		}
 		return false;
 	}

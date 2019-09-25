@@ -9,8 +9,30 @@ import java.util.Random;
 import core.BaseLimitedDrawable;
 
 public class Star extends BaseLimitedDrawable {
+	private int X = 0;
+	private int Y = 0;
+	private int SIZE = 0;
+	
 	public Star(double maxX, double maxY) {
 		super(maxX, maxY);
+	}
+	public Star(double maxX, double maxY, int _size) {
+		this(maxX, maxY);
+		this.SIZE = _size;
+	}
+	public void setSize(int _size) { this.SIZE = _size; }
+	public void moveTO(int _x, int _y) {
+		this.X = _x;
+		this.Y = _y;
+	}
+	public void moveIncremental(int _x, int _y) {
+		this.X += _x;
+		this.Y += _y;
+	}
+	public void randomize() {
+		Random r = new Random();
+		this.X = r.nextInt()%((int)this.MAX_X);
+		this.Y = r.nextInt()%((int)this.MAX_Y);
 	}
 	public static Shape createStar(int num_pontas, int x, int y, double raioOut, double raioIn) {
 	    double angle = Math.PI / num_pontas;
@@ -34,12 +56,6 @@ public class Star extends BaseLimitedDrawable {
 	}
 	@Override
 	public void draw(Graphics2D g2d) {
-		for(int i = 0; i< 20; i++) {
-			Random r = new Random();
-			int x = r.nextInt()%((int)this.MAX_X);
-			int y = r.nextInt()%((int)this.MAX_Y);
-			
-			g2d.draw(createStar(5, x, y, 1, 4));
-		}
+		g2d.draw(createStar(5, this.X, this.Y, 2, 4+SIZE));
 	}
 }

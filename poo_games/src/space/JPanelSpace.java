@@ -47,8 +47,14 @@ public class JPanelSpace extends JPanelDraw {
 		this.tela.plot();
 	}
 	protected void renderizar() {
-		this.tela.draw(star);
+		this.rainOfStars(20);
 		this.tela.draw(nave);
 		this.tela.draw(plano);
+	}
+	protected void rainOfStars(int qtd) {
+		for(int i = 1; i <= qtd; i++) {
+			star.randomize();
+			this.tela.draw(star);
+		}
 	}
 }
