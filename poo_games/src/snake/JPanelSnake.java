@@ -11,7 +11,7 @@ import snake.drawables.Snake;
 public class JPanelSnake extends JPanelDraw {
 	private Snake cobra;
 	private CartesianPlane plano;
-	private Point comida;
+	private Point comida;//comida não pode surgir sobre a cobra
 	public JPanelSnake(int largura, int altura) {
 		super(largura, altura);
 	}
@@ -50,8 +50,8 @@ public class JPanelSnake extends JPanelDraw {
 	private int[] getRandomCoord() { 
 		Random r = new Random();
 		int[] xy = new int[2];
-		xy[0] = r.nextInt()*2%((int)tela.halfWidth());
-		xy[1] = r.nextInt()*2%((int)tela.halfHeight());
+		xy[0] = r.nextInt()*2%((int)tela.halfWidth()-Point.SIZE);
+		xy[1] = r.nextInt()*2%((int)tela.halfHeight()-Point.SIZE);
 		return xy;
 	}
 }
