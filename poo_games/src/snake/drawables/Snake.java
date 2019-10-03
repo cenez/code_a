@@ -9,13 +9,6 @@ import java.util.List;
 import core.BaseLimitedDrawable;
 import drawables.Point;
 
-/* Movimento:
- * fluxoX diz o sentido que cobra segue na coordenada X do plano cartesiano;
- * fluxoY diz o sentido que cobra segue na coordenada Y do plano cartesiano;
- * Em fluxoX==0 ou fluxoY==0 diz que esse movimento é estável, 
- * respectivamente para sentidos X e Y, não existindo movimento;
- * fluxoX ou fluxoY caminham ao passo +-Point.SIZE.
- */
 public class Snake extends BaseLimitedDrawable {
 	private final Color HEAD_COLOR = Color.RED;
 	private final Color TAIL_COLOR = Color.WHITE;
@@ -30,6 +23,7 @@ public class Snake extends BaseLimitedDrawable {
 			TAIL.add(new Point(Point.SIZE * i, 0));
 	}
 	public Point getHEAD() { return HEAD; }
+	public void addToTail(Point p) { TAIL.add(p); }
 	public void up() {
 		if(fluxoY==0) {
 			fluxoY = Point.SIZE;
@@ -68,23 +62,31 @@ public class Snake extends BaseLimitedDrawable {
 		if(HEAD.Y >    MAX_Y) HEAD.Y = -1*MAX_Y + Point.SIZE;
 		if(HEAD.Y < -1*MAX_Y) HEAD.Y =    MAX_Y - Point.SIZE;
 	}
-	private void update() {
-		for(int i = TAIL.size() - 1; i > 0; i--)
-			TAIL.get(i).moveTO(TAIL.get(i - 1).X, TAIL.get(i - 1).Y);
-		
-		TAIL.get(0).moveTO(HEAD.X, HEAD.Y);
-		HEAD.moveIncremental(fluxoX, fluxoY);
-		ring();
-	}
 	@Override
 	public void draw(Graphics2D g2d) {
-		update();
+		Color corDoPincel = g2d.getColor();
+		g2d.setColor(TAIL_COLOR);
 		
+		for(int i = TAIL.size() - 1; i > 0; i--) {
+			TAIL.get(i).moveTO(TAIL.get(i - 1).X, TAIL.get(i - 1).Y);
+			TAIL.get(i).draw(g2d);
+		}
+		TAIL.get(0).moveTO(HEAD.X, HEAD.Y);
+		TAIL.get(0).draw(g2d);
+		
+		HEAD.moveIncremental(fluxoX, fluxoY);
+		ring();
 		g2d.setColor(HEAD_COLOR);
 		HEAD.draw(g2d);
-		g2d.setColor(TAIL_COLOR);
-		for (Point p : TAIL)
-			p.draw(g2d);
+		g2d.setColor(corDoPincel);
 	}
 }
+
+/* Observação sobre Movimento:
+ * fluxoX diz o sentido que cobra segue na coordenada X do plano cartesiano;
+ * fluxoY diz o sentido que cobra segue na coordenada Y do plano cartesiano;
+ * Em fluxoX==0 ou fluxoY==0 diz que esse movimento é estável, 
+ * respectivamente para sentidos X e Y, não existindo movimento;
+ * fluxoX ou fluxoY caminham ao passo +-Point.SIZE.
+ */
 

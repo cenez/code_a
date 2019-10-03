@@ -31,7 +31,10 @@ public abstract class JPanelDraw extends JPanel implements Runnable, KeyListener
 		this.load();
 		inicializar();
 		while(true) {
-			loop();
+			loop();			
+			tela.clear();
+			this.renderizar();
+			tela.plot();
 			try { Thread.sleep(Math.abs(sleeper)); } catch (InterruptedException e) { e.printStackTrace(); }
 		}
 	}
@@ -47,6 +50,5 @@ public abstract class JPanelDraw extends JPanel implements Runnable, KeyListener
 
 	protected abstract void inicializar();
 	protected abstract void loop();
-	protected abstract void update();
 	protected abstract void renderizar();
 }
