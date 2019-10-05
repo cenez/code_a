@@ -11,7 +11,6 @@ import drawables.Point;
 
 public class Snake extends BaseLimitedDrawable {
 	private final Color HEAD_COLOR = Color.RED;
-	private final Color TAIL_COLOR = Color.WHITE;
 	private final Point HEAD = new Point(0, 0);
 	private final List<Point> TAIL = new ArrayList<>();
 	
@@ -48,37 +47,34 @@ public class Snake extends BaseLimitedDrawable {
 			fluxoX = Point.SIZE;
 		} 
 	}
-	public void move(KeyEvent e) { 
+	public void listenKey(KeyEvent e) { 
 		int k = e.getKeyCode();
-		
 		if(k == KeyEvent.VK_UP) 		this.up();
 		else if(k == KeyEvent.VK_DOWN) 	this.down();
 		else if(k == KeyEvent.VK_LEFT) 	this.left();
 		else if(k == KeyEvent.VK_RIGHT) this.right();
 	}
-	private void ring() {
-		if(HEAD.X >    MAX_X) HEAD.X = -1*MAX_X + Point.SIZE;
-		if(HEAD.X < -1*MAX_X) HEAD.X =    MAX_X - Point.SIZE;
-		if(HEAD.Y >    MAX_Y) HEAD.Y = -1*MAX_Y + Point.SIZE;
-		if(HEAD.Y < -1*MAX_Y) HEAD.Y =    MAX_Y - Point.SIZE;
+	public void update() {
+		updateTail();
+		updateHead();
+	}
+	private void updateHead() {
+		HEAD.moveIncremental(fluxoX, fluxoY);
+		if(Math.abs(HEAD.X)>this.MAX_X) HEAD.X = -HEAD.X;
+		if(Math.abs(HEAD.Y)>this.MAX_Y) HEAD.Y = -HEAD.Y;
+	}
+	private void updateTail() {
+		for(int i = TAIL.size() - 1; i > 0; i--)
+			TAIL.get(i).moveTO(TAIL.get(i - 1).X, TAIL.get(i - 1).Y);
+		TAIL.get(0).moveTO(HEAD.X, HEAD.Y);
 	}
 	@Override
 	public void draw(Graphics2D g2d) {
-		Color corDoPincel = g2d.getColor();
-		g2d.setColor(TAIL_COLOR);
-		
-		for(int i = TAIL.size() - 1; i > 0; i--) {
-			TAIL.get(i).moveTO(TAIL.get(i - 1).X, TAIL.get(i - 1).Y);
-			TAIL.get(i).draw(g2d);
-		}
-		TAIL.get(0).moveTO(HEAD.X, HEAD.Y);
-		TAIL.get(0).draw(g2d);
-		
-		HEAD.moveIncremental(fluxoX, fluxoY);
-		ring();
+		TAIL.forEach(p -> p.draw(g2d));
+		Color cor = g2d.getColor();
 		g2d.setColor(HEAD_COLOR);
 		HEAD.draw(g2d);
-		g2d.setColor(corDoPincel);
+		g2d.setColor(cor);
 	}
 }
 

@@ -6,7 +6,7 @@ import javax.swing.SwingUtilities;
 @SuppressWarnings("serial")
 public class Main extends JFrame {
 	public Main() {
-		int largura = 200, altura = 230;
+		int largura = 500, altura = 530;
 		setTitle("Snake 2D");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		add(new JPanelSnake(largura, altura));

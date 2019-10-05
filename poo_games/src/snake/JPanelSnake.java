@@ -31,6 +31,7 @@ public class JPanelSnake extends JPanelDraw {
 			int[] xy = getRandomCoord();			
 			comida.moveTO(xy[0], xy[1]);
 		}
+		cobra.update();
 	}
 	@Override
 	protected void renderizar() {
@@ -40,7 +41,7 @@ public class JPanelSnake extends JPanelDraw {
 	}
 	@Override
 	public void keyPressed(KeyEvent e) { 
-		cobra.move(e);
+		cobra.listenKey(e);
 	}
 	@Override
 	public void keyTyped(KeyEvent e) { }
