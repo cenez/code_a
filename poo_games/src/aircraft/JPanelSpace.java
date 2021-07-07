@@ -1,14 +1,14 @@
-package space;
+package aircraft;
 import java.awt.event.KeyEvent;
 
+import aircraft.drawables.SpaceAirCraft;
 import core.JPanelDraw;
 import drawables.CartesianPlane;
 import drawables.Star;
-import space.drawables.SpaceCraftManager;
 
 @SuppressWarnings("serial")
 public class JPanelSpace extends JPanelDraw {
-	private SpaceCraftManager nave;
+	private SpaceAirCraft nave;
 	private CartesianPlane plano;
 	private Star star;
 	private boolean up=false, down=false;
@@ -18,7 +18,7 @@ public class JPanelSpace extends JPanelDraw {
 	}
 	@Override
 	protected void inicializar() { 
-		nave = new SpaceCraftManager(this);
+		nave = new SpaceAirCraft(this);
 		plano = new CartesianPlane(tela.halfWidth(), tela.halfHeight());
 		star = new Star(tela.halfWidth(), tela.halfHeight());
 	}

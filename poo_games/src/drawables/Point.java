@@ -18,8 +18,8 @@ public class Point implements IDrawable {
 	public boolean equals(Object obj) {
 		if(obj instanceof Point) {
 			Point p = (Point) obj;
-			boolean testeX = Math.abs(((int)this.X)-((int)p.X))<=Point.SIZE;
-			boolean testeY = Math.abs(((int)this.Y)-((int)p.Y))<=Point.SIZE;
+			boolean testeX = Math.abs(((int)this.X)-((int)p.X))<=(int)Point.SIZE/2;
+			boolean testeY = Math.abs(((int)this.Y)-((int)p.Y))<=(int)Point.SIZE/2;
 			return testeX && testeY;
 		}
 		return false;

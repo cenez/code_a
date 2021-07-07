@@ -1,4 +1,4 @@
-package drawables;
+package aircraft.drawables;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -9,14 +9,14 @@ import javax.swing.ImageIcon;
 
 import core.IDrawable;
 
-public class SpaceCraft implements IDrawable {
+public class AirCraft implements IDrawable {
 	public double X, Y;
 	public static int SIZE;
 	private String file = "nave.png";
 	
 	protected ImageObserver observer = null;
-	public SpaceCraft(int size, ImageObserver o, double x, double y) {
-		SpaceCraft.SIZE = size;
+	public AirCraft(int size, ImageObserver o, double x, double y) {
+		AirCraft.SIZE = size;
 		this.observer = o;
 		this.X = x; this.Y = y;
 	}
@@ -27,7 +27,7 @@ public class SpaceCraft implements IDrawable {
 	}
 	public void draw(Graphics2D g2d, Color cor) {
 		g2d.setColor(cor);
-		g2d.drawArc((int) this.X, (int) this.Y, SpaceCraft.SIZE, SpaceCraft.SIZE, 180, 180);
+		g2d.drawArc((int) this.X, (int) this.Y, AirCraft.SIZE, AirCraft.SIZE, 180, 180);
 		if(observer!=null) {
 			Image nave = new ImageIcon(this.getClass().getResource(file)).getImage();
 			g2d.drawImage(nave, (int)this.X, (int)this.Y, observer);
@@ -35,8 +35,8 @@ public class SpaceCraft implements IDrawable {
 	}
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof SpaceCraft) {
-			SpaceCraft p = (SpaceCraft) obj;
+		if(obj instanceof AirCraft) {
+			AirCraft p = (AirCraft) obj;
 			return this.X==p.X && this.Y==p.Y;
 		}
 		return false;

@@ -1,4 +1,4 @@
-package space.drawables;
+package aircraft.drawables;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -6,15 +6,14 @@ import java.awt.image.ImageObserver;
 
 import core.IDrawable;
 import core.Tela;
-import drawables.SpaceCraft;
 
-public class SpaceCraftManager implements IDrawable {
-	private final SpaceCraft body;
+public class SpaceAirCraft implements IDrawable {
+	private final AirCraft body;
 
-	private int mvx=-SpaceCraft.SIZE, mvy=0;
+	private int mvx=-AirCraft.SIZE, mvy=0;
 	private int move = 5;
 
-	public SpaceCraftManager(ImageObserver o) { body = new SpaceCraft(50, o, -25, -1*Tela.HEIGHT/2.0); } 
+	public SpaceAirCraft(ImageObserver o) { body = new AirCraft(50, o, -25, -1*Tela.HEIGHT/2.0); } 
 	public boolean up() {
 		this.mvy = move;
 		this.mvx = 0;
@@ -41,9 +40,9 @@ public class SpaceCraftManager implements IDrawable {
 		return true;
 	}
 	private void outBound() {
-		if(this.body.X>(Tela.WIDTH/2.0 - SpaceCraft.SIZE)) this.body.X = 1*Tela.WIDTH/2.0 - SpaceCraft.SIZE;
+		if(this.body.X>(Tela.WIDTH/2.0 - AirCraft.SIZE)) this.body.X = 1*Tela.WIDTH/2.0 - AirCraft.SIZE;
 		if(this.body.X<-1*Tela.WIDTH/2.0) this.body.X = -1*Tela.WIDTH/2.0;
-		if(this.body.Y>(Tela.HEIGHT/2.0 - SpaceCraft.SIZE)) this.body.Y = 1*Tela.HEIGHT/2.0 - SpaceCraft.SIZE;
+		if(this.body.Y>(Tela.HEIGHT/2.0 - AirCraft.SIZE)) this.body.Y = 1*Tela.HEIGHT/2.0 - AirCraft.SIZE;
 		if(this.body.Y<-1*Tela.HEIGHT/2.0) this.body.Y = -1*Tela.HEIGHT/2.0;
 	}
 	@Override

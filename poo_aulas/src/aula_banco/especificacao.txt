@@ -1,8 +1,0 @@
-Programar um sistema de conta corrente, em Java (uma ou mais classes), que deve possuir a seguinte especificação: 
- 1-Uma conta pertence a um ou mais correntista(s);
- 2-Uma contas aberta deve inicialmente possuir ao menos 50 reais;
- 3-O sistema suportará operações como realizar depósitos, saques e transferências;
- 4-Saldos não podem ficar negativos;
- 5-Na abertura de conta corrente, deve-se registrar a data vigente;
- 
- 

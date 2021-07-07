@@ -3,48 +3,77 @@ package snake.drawables;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
+import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 import java.util.List;
 
 import core.BaseLimitedDrawable;
-import drawables.Point;
+import drawables.BodySnakeImg;
+import drawables.Circulo;
+import drawables.HeadSnakeImg;
 
 public class Snake extends BaseLimitedDrawable {
 	private final Color HEAD_COLOR = Color.RED;
-	private final Point HEAD = new Point(0, 0);
-	private final List<Point> TAIL = new ArrayList<>();
+	private final HeadSnakeImg HEAD;// = new Point(0, 0);
+	private final List<BodySnakeImg> TAIL = new ArrayList<>();
 	
-	private int fluxoX=-Point.SIZE, fluxoY=0; 
+	public int fluxoX=-Circulo.SIZE, fluxoY=0; 
 	
-	public Snake(double xMax, double yMax) {
+//	public SnakeShape(double xMax, double yMax) {
+//		super(xMax, yMax);
+//		HEAD = new PacManImg((MAX_X-Circulo.SIZE*2), (MAX_Y-Circulo.SIZE*2), Color.BLACK, HEAD_COLOR, false);
+//		for(int i = 1; i <= 4; i++)
+//			TAIL.add(new Circulo(Circulo.SIZE * i, 0, Color.WHITE));
+//		TAIL.get(0).moveTO(HEAD.X, HEAD.Y);
+//		for(int i = 1; i < TAIL.size(); i++)
+//			TAIL.get(i).moveTO(TAIL.get(i - 1).X, TAIL.get(i - 1).Y);
+//	}
+	public Snake(double xMax, double yMax, ImageObserver o) {
 		super(xMax, yMax);
+		HEAD = new HeadSnakeImg((MAX_X-Circulo.SIZE*2), (MAX_Y-Circulo.SIZE*2), o);//Color.BLACK, HEAD_COLOR, false);
 		for(int i = 1; i <= 4; i++)
-			TAIL.add(new Point(Point.SIZE * i, 0));
+			TAIL.add(new BodySnakeImg(Circulo.SIZE * i, 0, o));
+		TAIL.get(0).moveTO(HEAD.X, HEAD.Y);
+		for(int i = 1; i < TAIL.size(); i++)
+			TAIL.get(i).moveTO(TAIL.get(i - 1).X, TAIL.get(i - 1).Y);
 	}
-	public Point getHEAD() { return HEAD; }
-	public void addToTail(Point p) { TAIL.add(p); }
+
+	public Circulo getHEAD() { return HEAD; }
+	public void addToTail(BodySnakeImg p) { TAIL.add(p); }
 	public void up() {
 		if(fluxoY==0) {
-			fluxoY = Point.SIZE;
+			fluxoY = Circulo.SIZE;
 			fluxoX = 0;
+			int quadrante = 1;
+			HEAD.setQuad(quadrante);
+			TAIL.get(0).setQuad(quadrante);
 		} 
 	}
 	public void down() {
 		if(fluxoY==0) {
-			fluxoY = -Point.SIZE;
+			fluxoY = -Circulo.SIZE;
 			fluxoX = 0;
+			int quadrante = 3;
+			HEAD.setQuad(quadrante);
+			TAIL.get(0).setQuad(quadrante);
 		} 
 	}
 	public void left() {
 		if(fluxoX==0) {
 			fluxoY = 0;
-			fluxoX = -Point.SIZE;
+			fluxoX = -Circulo.SIZE;
+			int quadrante = 2;
+			HEAD.setQuad(quadrante);
+			TAIL.get(0).setQuad(quadrante);
 		} 
 	}
 	public void right() {
 		if(fluxoX==0) {
 			fluxoY = 0;
-			fluxoX = Point.SIZE;
+			fluxoX = Circulo.SIZE;
+			int quadrante = 0;
+			HEAD.setQuad(quadrante);
+			TAIL.get(0).setQuad(quadrante);
 		} 
 	}
 	public void listenKey(KeyEvent e) { 
@@ -58,14 +87,19 @@ public class Snake extends BaseLimitedDrawable {
 		updateTail();
 		updateHead();
 	}
-	private void updateHead() {
+	private void updateHead() { 
 		HEAD.moveIncremental(fluxoX, fluxoY);
-		if(Math.abs(HEAD.X)>this.MAX_X) HEAD.X = -HEAD.X;
-		if(Math.abs(HEAD.Y)>this.MAX_Y) HEAD.Y = -HEAD.Y;
+		if(HEAD.X+Circulo.SIZE*2>MAX_X) HEAD.moveIncremental(-fluxoX, fluxoY);
+		else if(HEAD.X-Circulo.SIZE<-MAX_X) HEAD.moveIncremental(-fluxoX, fluxoY);
+		else if(HEAD.Y+Circulo.SIZE*2>MAX_Y) HEAD.moveIncremental(fluxoX, -fluxoY);
+		else if(HEAD.Y-Circulo.SIZE<-MAX_Y) HEAD.moveIncremental(fluxoX, -fluxoY);
 	}
-	private void updateTail() {
-		for(int i = TAIL.size() - 1; i > 0; i--)
+	private void updateTail() { 
+		for(int i = TAIL.size() - 1; i > 0; i--) {
 			TAIL.get(i).moveTO(TAIL.get(i - 1).X, TAIL.get(i - 1).Y);
+			//if(i<TAIL.size()-1)
+			//	TAIL.get(i).setQuad(4);
+		}
 		TAIL.get(0).moveTO(HEAD.X, HEAD.Y);
 	}
 	@Override
