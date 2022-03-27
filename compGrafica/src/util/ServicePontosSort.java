@@ -11,8 +11,8 @@ public class ServicePontosSort {
 		Collection<Point> l = new HashSet<>();
 		Random r = new Random();
 		for(int i = 0; i<numPontos; i++) {
-			int x = (r.nextInt()%190);
-			int y = (r.nextInt()%190);
+			int x = (r.nextInt()%300);
+			int y = (r.nextInt()%300);
 			l.add(new Point(5, x,   y));
 		}
 		
