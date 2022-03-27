@@ -13,6 +13,7 @@ public class JPanelSort extends JPanelDraw {
 	private InsertionSortPlot isortPlot;
 	private MergeSortPlot msortPlot;
 	private JFrame frame = null;
+	private int numPointsGenerated = 40;
 	public JPanelSort(int largura, int altura, JFrame frm) {
 		super(largura, altura);
 		frame = frm;
@@ -34,7 +35,7 @@ public class JPanelSort extends JPanelDraw {
 		msortPlot = new MergeSortPlot();
 	}
 	protected void update() { 
-		Point[] pointss = ServicePontosSort.pontos(40);
+		Point[] pointss = ServicePontosSort.pontos(numPointsGenerated);
 		Point[] pointms = new Point[pointss.length];
 		Point[] pointis = new Point[pointss.length];
 		for (int i =0; i < pointss.length; i++) {
