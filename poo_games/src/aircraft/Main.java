@@ -12,6 +12,7 @@ public class Main extends JFrame {
 		add(new JPanelSpace(largura, altura));
 		setSize(largura, altura);
 		setLocationRelativeTo(null);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
 
 	public static void main(String[] args) {
