@@ -3,7 +3,7 @@ package sort;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import commons.Tela;
+import commons.Canvas;
 import geometrics.IIncrementalDrawable;
 import geometrics.Point;
 
@@ -17,15 +17,15 @@ public class InsertionSortPlot implements IIncrementalDrawable {
 		this.points = points;
 	}
 
-	public void draw(Tela tela) {
-		draw(tela, tela.getPINTOR(), tela.halfLargura(), tela.halfAltura());
+	public void draw(Canvas tela) {
+		draw(tela, tela.getPaint(), tela.halfLargura(), tela.halfAltura());
 	}
 
 	public void draw(Graphics2D g2d, double maxX, double maxY) {
 		draw(null, g2d, maxX, maxY);
 	}
 
-	private void draw(Tela tela, Graphics2D g2d, double maxX, double maxY) {
+	private void draw(Canvas tela, Graphics2D g2d, double maxX, double maxY) {
 		int min = 0;
 		int max = 0;
 		for (int i = 0; i < points.length; i++)
@@ -40,7 +40,7 @@ public class InsertionSortPlot implements IIncrementalDrawable {
 		drawPointsAndInitialLines(g2d);
 		sort(tela, g2d, points, points.length-1);
 	}
-	private void sort(Tela tela, Graphics2D g2d, Point[] A, int n) {
+	private void sort(Canvas tela, Graphics2D g2d, Point[] A, int n) {
 		for (int j = 1; j <= n; j++) {
 			Point chave = A[j];
 			int i = j - 1;
@@ -54,7 +54,7 @@ public class InsertionSortPlot implements IIncrementalDrawable {
 		}
 	}
 
-	private void apontaRED_WHITE(Tela tela, Graphics2D g2d, Point a, Point b, Color c) {
+	private void apontaRED_WHITE(Canvas tela, Graphics2D g2d, Point a, Point b, Color c) {
 		a.drawLineTo(g2d, b, c);
 		tela.plot();
 		if(sleep>0)
@@ -63,7 +63,7 @@ public class InsertionSortPlot implements IIncrementalDrawable {
 		
 	}
 
-	private void apontaRED_BLACK_CHANGE(Tela tela, Graphics2D g2d, Point p, Color c) {
+	private void apontaRED_BLACK_CHANGE(Canvas tela, Graphics2D g2d, Point p, Color c) {
 		p.draw(g2d, Color.BLACK);
 		p.y = 0;
 		p.draw(g2d, c);

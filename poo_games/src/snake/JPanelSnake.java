@@ -3,7 +3,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
-import core.JPanelDraw;
+import core.GFrame;
 import drawables.BodySnakeImg;
 import drawables.Circulo;
 import drawables.Retangulo;
@@ -11,7 +11,7 @@ import drawables.RetanguloImg;
 import snake.drawables.Snake;
 
 @SuppressWarnings("serial")
-public class JPanelSnake extends JPanelDraw {
+public class JPanelSnake extends GFrame {
 	private Snake cobra;
 	//private Retangulo borda;
 	private Retangulo obstaculo;

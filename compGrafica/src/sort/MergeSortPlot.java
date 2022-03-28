@@ -3,7 +3,7 @@ package sort;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import commons.Tela;
+import commons.Canvas;
 import geometrics.IIncrementalDrawable;
 import geometrics.Point;
 
@@ -18,15 +18,15 @@ public class MergeSortPlot implements IIncrementalDrawable {
 	}
 
 
-	public void draw(Tela tela) {
-		draw(tela, tela.getPINTOR(), tela.halfLargura(), tela.halfAltura());
+	public void draw(Canvas tela) {
+		draw(tela, tela.getPaint(), tela.halfLargura(), tela.halfAltura());
 	}
 
 	public void draw(Graphics2D g2d, double maxX, double maxY) {
 		draw(null, g2d, maxX, maxY);
 	}
 
-	private void draw(Tela tela, Graphics2D g2d, double maxX, double maxY) {
+	private void draw(Canvas tela, Graphics2D g2d, double maxX, double maxY) {
 		int min = 0;
 		int max = 0;
 		for (int i = 0; i < points.length; i++)
@@ -42,7 +42,7 @@ public class MergeSortPlot implements IIncrementalDrawable {
 		sort(tela, g2d, points, 1, points.length-1);
 	}
 
-	private void apontaRED_WHITE(Tela tela, Graphics2D g2d, Point a, Point b, Color c) {
+	private void apontaRED_WHITE(Canvas tela, Graphics2D g2d, Point a, Point b, Color c) {
 		a.drawLineTo(g2d, b, Color.RED);
 		tela.plot();
 		if(sleep>0)
@@ -68,7 +68,7 @@ public class MergeSortPlot implements IIncrementalDrawable {
 				p.draw(g2d, Color.WHITE);
 		}
 	}
-	private void sort(Tela tela, Graphics2D g2d, Point[] A, int p, int r){
+	private void sort(Canvas tela, Graphics2D g2d, Point[] A, int p, int r){
 		if(p<r){
 			int q = (int)((p+r)/2);
 			sort(tela, g2d, A,p,q); 
@@ -76,7 +76,7 @@ public class MergeSortPlot implements IIncrementalDrawable {
 			merge(tela, g2d, A,p,q,r); 
 		}
 	}
-	private void merge(Tela tela, Graphics2D g2d, Point[] A, int p, int q, int r){
+	private void merge(Canvas tela, Graphics2D g2d, Point[] A, int p, int q, int r){
 		int n1 = q-p+1; 
 		int n2 = r-q; 
 		Point[] L = new Point[n1+2]; 

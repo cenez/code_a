@@ -6,10 +6,10 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import core.BaseLimitedDrawable;
-import drawables.Point;
+import core.ADrawableLimited;
+import drawables.Point; 
 
-public class SnakeOLD extends BaseLimitedDrawable {
+public class SnakeOLD extends ADrawableLimited {
 	private final Color HEAD_COLOR = Color.RED;
 	private final Point HEAD;// = new Point(0, 0);
 	private final List<Point> TAIL = new ArrayList<>();

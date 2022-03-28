@@ -4,9 +4,9 @@ import java.awt.Graphics2D;
 import java.awt.Stroke;
 import java.awt.geom.Line2D;
 
-import core.BaseLimitedDrawable;
+import core.ADrawableLimited;
 
-public class CartesianPlane extends BaseLimitedDrawable {
+public class CartesianPlane extends ADrawableLimited {
 	private final int recuo = 30;
 	
 	public CartesianPlane(double maxX, double maxY) {

@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.image.ImageObserver;
 
 import core.IDrawable;
-import core.Tela;
+import core.Canvas;
 
 public class SpaceAirCraft implements IDrawable {
 	private final AirCraft body;
@@ -13,7 +13,7 @@ public class SpaceAirCraft implements IDrawable {
 	private int mvx=-AirCraft.SIZE, mvy=0;
 	private int move = 5;
 
-	public SpaceAirCraft(ImageObserver o) { body = new AirCraft(50, o, -25, -1*Tela.HEIGHT/2.0); } 
+	public SpaceAirCraft(ImageObserver o) { body = new AirCraft(50, o, -25, -1*Canvas.HEIGHT/2.0); } 
 	public boolean up() {
 		this.mvy = move;
 		this.mvx = 0;
@@ -40,10 +40,10 @@ public class SpaceAirCraft implements IDrawable {
 		return true;
 	}
 	private void outBound() {
-		if(this.body.X>(Tela.WIDTH/2.0 - AirCraft.SIZE)) this.body.X = 1*Tela.WIDTH/2.0 - AirCraft.SIZE;
-		if(this.body.X<-1*Tela.WIDTH/2.0) this.body.X = -1*Tela.WIDTH/2.0;
-		if(this.body.Y>(Tela.HEIGHT/2.0 - AirCraft.SIZE)) this.body.Y = 1*Tela.HEIGHT/2.0 - AirCraft.SIZE;
-		if(this.body.Y<-1*Tela.HEIGHT/2.0) this.body.Y = -1*Tela.HEIGHT/2.0;
+		if(this.body.X>(Canvas.WIDTH/2.0 - AirCraft.SIZE)) this.body.X = 1*Canvas.WIDTH/2.0 - AirCraft.SIZE;
+		if(this.body.X<-1*Canvas.WIDTH/2.0) this.body.X = -1*Canvas.WIDTH/2.0;
+		if(this.body.Y>(Canvas.HEIGHT/2.0 - AirCraft.SIZE)) this.body.Y = 1*Canvas.HEIGHT/2.0 - AirCraft.SIZE;
+		if(this.body.Y<-1*Canvas.HEIGHT/2.0) this.body.Y = -1*Canvas.HEIGHT/2.0;
 	}
 	@Override
 	public void draw(Graphics2D g2d) {//, double maxX, double maxY) {

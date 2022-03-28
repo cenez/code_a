@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-import commons.Tela;
+import commons.Canvas;
 import fecho.Graham;
 import geometrics.PlanoCartesiano;
 import util.ServicePontos;
@@ -14,7 +14,7 @@ import util.ServicePontos;
 public class TestsJPanelDraw extends JPanel implements Runnable, KeyListener {
 	//Controle de plotagem e refresh
 	private int sleep = 2000;
-	private Tela tela;
+	private Canvas tela;
 	private JProgressBar bar = new JProgressBar(0, 100);
 	
 	//Componentes visuais
@@ -24,7 +24,7 @@ public class TestsJPanelDraw extends JPanel implements Runnable, KeyListener {
 	public TestsJPanelDraw(int largura, int altura) {
 		super();
 		this.setSize(largura, altura);
-		this.tela = new Tela(this);
+		this.tela = new Canvas(this);
 		this.setFocusable(true);
 		addKeyListener(this);
 	}

@@ -7,12 +7,12 @@ import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 import java.util.List;
 
-import core.BaseLimitedDrawable;
+import core.ADrawableLimited;
 import drawables.BodySnakeImg;
 import drawables.Circulo;
 import drawables.HeadSnakeImg;
 
-public class Snake extends BaseLimitedDrawable {
+public class Snake extends ADrawableLimited {
 	private final Color HEAD_COLOR = Color.RED;
 	private final HeadSnakeImg HEAD;// = new Point(0, 0);
 	private final List<BodySnakeImg> TAIL = new ArrayList<>();

@@ -2,12 +2,12 @@ package aircraft;
 import java.awt.event.KeyEvent;
 
 import aircraft.drawables.SpaceAirCraft;
-import core.JPanelDraw;
+import core.GFrame;
 import drawables.CartesianPlane;
 import drawables.Star;
 
 @SuppressWarnings("serial")
-public class JPanelSpace extends JPanelDraw {
+public class JPanelSpace extends GFrame {
 	private SpaceAirCraft nave;
 	private CartesianPlane plano;
 	private Star star;

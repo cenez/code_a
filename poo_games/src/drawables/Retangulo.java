@@ -5,9 +5,9 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Shape;
 
-import core.BaseLimitedDrawable;
+import core.ADrawableLimited;
 
-public class Retangulo extends BaseLimitedDrawable {
+public class Retangulo extends ADrawableLimited {
 	public final Rectangle RETANGULO;
 	private boolean fill = false;
 	private Color cor = Color.WHITE;

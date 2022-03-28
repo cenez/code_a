@@ -6,9 +6,9 @@ import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
-import core.BaseLimitedDrawable;
+import core.ADrawableLimited;
 
-public class Star extends BaseLimitedDrawable {
+public class Star extends ADrawableLimited {
 	private int X = 0;
 	private int Y = 0;
 	private int SIZE = 0;

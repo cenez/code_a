@@ -1,7 +1,7 @@
 package geometrics;
 
-import commons.Tela;
+import commons.Canvas;
 
 public interface IIncrementalDrawable extends IDrawable {
-	void draw(Tela tela);
+	void draw(Canvas tela);
 }

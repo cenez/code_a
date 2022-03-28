@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Stack;
 
-import commons.Tela;
+import commons.Canvas;
 import geometrics.IIncrementalDrawable;
 import geometrics.Point;
 import util.SortPoint;
@@ -16,11 +16,11 @@ public class Graham implements IIncrementalDrawable {
 	
 	public void setPoints(Point[] points) { this.points = points; }
 	
-	public void draw(Tela tela) { draw(tela, tela.getPINTOR(), tela.halfLargura(), tela.halfAltura()); }
+	public void draw(Canvas tela) { draw(tela, tela.getPaint(), tela.halfLargura(), tela.halfAltura()); }
 	
 	public void draw(Graphics2D g2d, double maxX, double maxY) { draw(null, g2d, maxX, maxY); }
 	
-	private void draw(Tela tela, Graphics2D g2d, double maxX, double maxY) {
+	private void draw(Canvas tela, Graphics2D g2d, double maxX, double maxY) {
 		Stack<Point> fecho = new Stack<Point>(); //cnz
 		int minYX = 0;
 		

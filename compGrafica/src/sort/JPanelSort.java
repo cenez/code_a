@@ -4,12 +4,12 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import commons.JPanelDraw;
+import commons.GFrame;
 import geometrics.Point;
 import util.ServicePontosSort;
 
 @SuppressWarnings("serial")
-public class JPanelSort extends JPanelDraw {
+public class JPanelSort extends GFrame {
 	private SelectionSortPlot ssortPlot;
 	private InsertionSortPlot isortPlot;
 	private MergeSortPlot msortPlot;

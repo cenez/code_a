@@ -1,12 +1,12 @@
 package fecho;
 import java.awt.event.KeyEvent;
 
-import commons.JPanelDraw;
+import commons.GFrame;
 import geometrics.PlanoCartesiano;
 import util.ServicePontos;
 
 @SuppressWarnings("serial")
-public class JPanelGraham extends JPanelDraw {
+public class JPanelGraham extends GFrame {
 	//Componentes visuais
 	private Graham graham;
 	private PlanoCartesiano plano;

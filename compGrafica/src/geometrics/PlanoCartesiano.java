@@ -6,19 +6,19 @@ import java.awt.geom.Line2D;
 
 public class PlanoCartesiano implements IDrawable {
 	private final int recuo = 30;
-	public void draw(Graphics2D g2d, double maxX, double maxY) {
-		Stroke tmp = g2d.getStroke();
+	public void draw(Graphics2D paint, double maxX, double maxY) {
+		Stroke tmp = paint.getStroke();
 		Stroke dashed = new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0);
-		g2d.setStroke(dashed);
+		paint.setStroke(dashed);
 		
-		g2d.draw(new Line2D.Double(
+		paint.draw(new Line2D.Double(
 				-1*maxX+recuo, 0, 
 				maxX-recuo, 0));
-		g2d.draw(new Line2D.Double(
+		paint.draw(new Line2D.Double(
 				0, -1*maxY+recuo, 
 				0, maxY-recuo));
 
-		g2d.setStroke(tmp);
+		paint.setStroke(tmp);
 		
 //		g2d.scale(1, -1);
 //		g2d.drawString("Q0", 200, -200);

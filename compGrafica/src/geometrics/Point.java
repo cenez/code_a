@@ -59,9 +59,9 @@ public class Point implements IDrawable {
 		draw(g2d, Color.WHITE);
 	}
 	
-	public void draw(Graphics2D g2d, Color cor) {
-		g2d.setColor(cor);
-		g2d.fillOval((int) this.x, (int) this.y, Point.SIZE, Point.SIZE);
+	public void draw(Graphics2D paint, Color cor) {
+		paint.setColor(cor);
+		paint.fillOval((int) this.x, (int) this.y, Point.SIZE, Point.SIZE);
 	}
 	public void drawLineTo(Graphics2D g2d, Point b, Color cor) {
 		g2d.setColor(cor);

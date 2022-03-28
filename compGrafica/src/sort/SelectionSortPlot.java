@@ -3,7 +3,7 @@ package sort;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import commons.Tela;
+import commons.Canvas;
 import geometrics.IIncrementalDrawable;
 import geometrics.Point;
 
@@ -17,15 +17,15 @@ public class SelectionSortPlot implements IIncrementalDrawable {
 		this.points = points;
 	}
 
-	public void draw(Tela tela) {
-		draw(tela, tela.getPINTOR(), tela.halfLargura(), tela.halfAltura());
+	public void draw(Canvas tela) {
+		draw(tela, tela.getPaint(), tela.halfLargura(), tela.halfAltura());
 	}
 
 	public void draw(Graphics2D g2d, double maxX, double maxY) {
 		draw(null, g2d, maxX, maxY);
 	}
 
-	private void draw(Tela tela, Graphics2D g2d, double maxX, double maxY) {
+	private void draw(Canvas tela, Graphics2D g2d, double maxX, double maxY) {
 		int min = 0;
 		int max = 0;
 		for (int i = 0; i < points.length; i++)
@@ -40,7 +40,7 @@ public class SelectionSortPlot implements IIncrementalDrawable {
 		drawPointsAndInitialLines(g2d);
 		sort(tela, g2d, points, 0, 0);
 	}
-	private void sort(Tela tela, Graphics2D g2d, Point[] A, int p, int r){
+	private void sort(Canvas tela, Graphics2D g2d, Point[] A, int p, int r){
 		int menor, n = points.length - 1;
 		for (int j = 1; j <= (n - 1); j++) {
 			menor = j;
@@ -56,7 +56,7 @@ public class SelectionSortPlot implements IIncrementalDrawable {
 		try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
 	}
 
-	private void apontaRED_WHITE(Tela tela, Graphics2D g2d, Point a, Point b, Color c) {
+	private void apontaRED_WHITE(Canvas tela, Graphics2D g2d, Point a, Point b, Color c) {
 		a.drawLineTo(g2d, b, c);
 		tela.plot();
 		if(sleep>0)
@@ -65,7 +65,7 @@ public class SelectionSortPlot implements IIncrementalDrawable {
 		//drawPointsAndInitialLines(g2d);
 	}
 
-	private void apontaRED_BLACK_CHANGE(Tela tela, Graphics2D g2d, Point p, Color c) {
+	private void apontaRED_BLACK_CHANGE(Canvas tela, Graphics2D g2d, Point p, Color c) {
 		p.draw(g2d, Color.BLACK);
 		p.y = 0;
 		p.draw(g2d, c);

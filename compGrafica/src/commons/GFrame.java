@@ -5,16 +5,16 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
 @SuppressWarnings("serial")
-public abstract class JPanelDraw extends JPanel implements Runnable, KeyListener {
+public abstract class GFrame extends JPanel implements Runnable, KeyListener {
 	//Controle de plotagem e refresh
-	protected final Tela tela;
+	protected final Canvas tela;
 	private final JProgressBar bar = new JProgressBar(0, 100);
 	private int sleeper = 0;
 	
-	public JPanelDraw(int largura, int altura) {
+	public GFrame(int largura, int altura) {
 		super();
 		this.setSize(largura, altura);
-		this.tela = new Tela(this);
+		this.tela = new Canvas(this);
 		this.setFocusable(true);
 		addKeyListener(this);
 	}
